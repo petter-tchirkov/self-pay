@@ -115,6 +115,10 @@ const { locale } = useI18n();
       box-shadow: 2px 2px 5px 0px #232326e5, -2px -2px 4px 0px #51535ae5,
         2px -2px 4px 0px #23232633, -2px 2px 4px 0px #23232633,
         -1px -1px 2px 0px #23232680 inset, 1px 1px 2px 0px #51535a4d inset;
+
+      &:active {
+        background: linear-gradient(161.21deg, #ed6672 0%, #ec2132 100%);
+      }
     }
   }
 }
