@@ -11,14 +11,14 @@
         <LanguageSwitcher />
       </div>
       <div class="actions">
-        <button
+        <NuxtLink to="/menu"
           v-for="btn in ['pay', 'payInPart', 'restMenu']"
           class="actions__btn"
         >
           <img v-if="!global.isDark" :src="`/images/${btn}.svg`" alt="" />
           <img v-else :src="`/images/${btn}-light.svg`" alt="" />
           <span>{{ $t(btn) }}</span>
-        </button>
+        </NuxtLink >
       </div>
       <OrderButton />
     </div>
