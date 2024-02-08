@@ -4,7 +4,7 @@
       <img src="/images/icons/favourite.svg" alt="" />
     </button>
     <img :src="image" alt="" class="item__image" />
-    <p class="item__name">{{ name }}</p>
+    <p class="item__name">{{ $t(`foods.${name}`) }}</p>
     <span class="item__price">{{ price + " " + $t("uah") }}</span>
   </div>
 </template>
@@ -26,7 +26,10 @@ const {
   background-color: #f5f5f5;
   border-radius: 15px;
   padding: 10px;
+  padding-top: 0;
   min-width: 135px;
+  width: 135px;
+  height: 150px;
   position: relative;
   margin-right: 20px;
 
@@ -41,25 +44,31 @@ const {
   &__favourite {
     position: absolute;
     right: 10px;
+    top: 10px;
   }
 
   &__image {
-    width: 100%;
+    width: 100px;
     height: 100px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 15px;
   }
 
   &__name {
     color: #666666;
-    font-size: 18px;
+    font-size: 14px;
+    line-height: 16px;
     font-weight: 600;
+    max-width: 120px;
+    margin-top: -20px;
   }
 
   &__price {
     color: #2f2f2f;
     font-size: 16px;
     font-weight: 600;
+    position: absolute;
+    bottom: 10px;
   }
 }
 </style>

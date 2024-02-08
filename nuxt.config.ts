@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   modules: [
     "@nuxtjs/tailwindcss",
     "nuxt-primevue",
+    "@vueuse/nuxt",
     [
       "@pinia/nuxt",
       {
@@ -19,7 +20,7 @@ export default defineNuxtConfig({
       unstyled: true,
     },
     components: {
-      include: ["Dropdown", "InputText"],
+      include: ["Dropdown", "InputText", "Checkbox"],
     },
   },
   i18n: {

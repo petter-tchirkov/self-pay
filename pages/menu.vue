@@ -1,7 +1,6 @@
 <template>
   <section class="wrapper overflow-x-hidden">
-    <ThemeSwitcher />
-    <div class="search">
+    <div class="search pt-2">
       <div class="search__box">
         <InputText
           v-model="search"
@@ -25,9 +24,9 @@
         {{ food.name }}
       </button>
     </div>
-    <FoodSlider title="Burgers" />
-    <FoodSlider title="Pizza" />
-    <FoodSlider title="Sushi" />
+    <FoodSlider :food="foodStore.popular" :title="$t('categories.popular')" />
+    <FoodSlider :food="foodStore.seconds" :title="$t('categories.seconds')" />
+    <FoodSlider :food="foodStore.salads" :title="$t('categories.salads')" />
     <OrderButton />
   </section>
 </template>
@@ -36,15 +35,14 @@
 const search = ref("");
 const { t } = useI18n();
 const foods = ref([
-  { name: t("foods.all"), active: false },
-  { name: t("foods.burger"), active: false },
-  { name: t("foods.salad"), active: false },
-  { name: t("foods.soup"), active: false },
-  { name: t("foods.pizza"), active: false },
-  { name: t("foods.sweets"), active: false },
-  { name: t("foods.sushi"), active: false },
-  { name: t("foods.shaurma"), active: false },
+  { name: t("categories.all"), active: false },
+  { name: t("categories.popular"), active: false },
+  { name: t("categories.burgers"), active: false },
+  { name: t("categories.salads"), active: false },
+  { name: t("categories.pizza"), active: false },
 ]);
+
+const foodStore = useFoodStore();
 const selectedFood = ref(0);
 </script>
 

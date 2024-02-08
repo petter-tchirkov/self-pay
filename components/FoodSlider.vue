@@ -3,35 +3,44 @@
     <h2 class="catalogue__title">{{ title }}</h2>
     <div class="catalogue__slider">
       <FoodItem
-        :name="food.name"
-        :image="food.img"
-        :price="food.price"
-        v-for="food in foodData"
+        :name="f.name"
+        :image="f.img"
+        :price="f.price"
+        v-for="f in food"
       />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-const { title = "Burgers" } = defineProps<{
+const { title = "Burgers", food } = defineProps<{
   title: string;
+  food: {
+    name: string;
+    img: string;
+    price: number;
+  }[];
 }>();
+
+const popular = ref([
+  {
+    name: "Хек з овочами в томатному соусі",
+    img: "/images/hek.png",
+    price: 150,
+  },
+  {
+    name: "Салат-фреш Грецький",
+    img: "/images/salad.png",
+    price: 69,
+  },
+  {
+    name: "Burger",
+    img: "/images/burger.png",
+    price: 255,
+  },
+]);
 const foodData = ref([
-  {
-    name: "Burger",
-    img: "/images/burger.png",
-    price: 255,
-  },
-  {
-    name: "Burger",
-    img: "/images/burger.png",
-    price: 255,
-  },
-  {
-    name: "Burger",
-    img: "/images/burger.png",
-    price: 255,
-  },
+  ,
   {
     name: "Burger",
     img: "/images/burger.png",
@@ -47,7 +56,7 @@ const foodData = ref([
 
 <style scoped lang="scss">
 .catalogue {
-  padding-inline: 16px;
+  padding-left: 16px;
   margin-bottom: 10px;
   position: relative;
 
@@ -58,7 +67,7 @@ const foodData = ref([
 
   &__slider {
     display: flex;
-    overflow-x: auto;
+    overflow-x: scroll;
     padding-block: 10px;
 
     &::-webkit-scrollbar {
