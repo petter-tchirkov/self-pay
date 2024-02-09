@@ -37,6 +37,9 @@ export default defineI18nConfig(() => ({
         seconds: "Seconds",
         salads: "Salads",
       },
+      addToOrder: "Add to order",
+      hekDesc:
+        "Fish in a delicate tomato-vegetable sauce, juicy and tasty. It can be consumed both hot and cold. Vegetables, in this dish, act as a garnish. The sauce, thanks to sugar and tomato paste, will have a sour-sweet taste, so it is perfect for fish.",
     },
     ua: {
       table: "Стіл",
@@ -73,6 +76,9 @@ export default defineI18nConfig(() => ({
         seconds: "Другі страви",
         salads: "Салати",
       },
+      addToOrder: "Додати до замовлення",
+      hekDesc:
+        "Риба під ніжним томатно-овочевим соусом, соковита і смачна. Її можна вживати як в гарячому так і в холодному вигляді. Овочі, в даному блюді, виступають в якості гарніру. Соус, завдяки цукру і томатній пасті, буде мати кисло-солодкий присмак, тому відмінно підходить для риби.",
     },
   },
 }));

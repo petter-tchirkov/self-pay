@@ -1,5 +1,5 @@
 <template>
-  <div class="catalogue__item item">
+  <div class="catalogue__item item" @click="$router.push(`/${name}`)">
     <button class="item__favourite">
       <img src="/images/icons/favourite.svg" alt="" />
     </button>

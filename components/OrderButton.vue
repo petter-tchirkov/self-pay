@@ -34,15 +34,15 @@
       </div>
       <div class="order__cost cost">
         <div class="cost__total flex justify-between text-[15px]">
-          <span>{{ $t("orderTotal") }}</span>
+          <span>{{ $t("orderTotal") }}:</span>
           <span>750 {{ $t("uah") }}</span>
         </div>
         <div class="cost__total flex justify-between text-[15px]">
-          <span>{{ $t("orderTax") }} (20%)</span>
+          <span>{{ $t("orderTax") }} (20%):</span>
           <span>150 {{ $t("uah") }}</span>
         </div>
         <div class="cost__total flex justify-between text-[15px]">
-          <span>{{ $t("orderService") }} (10%)</span>
+          <span>{{ $t("orderService") }} (10%):</span>
           <span>75 {{ $t("uah") }}</span>
         </div>
         <div class="cost__total flex justify-between text-[25px] mb-[25px]">
@@ -75,6 +75,7 @@ const isOrderOpened = ref(false);
   width: 100%;
   position: fixed;
   bottom: 0;
+  left: 0;
   height: min-content;
   max-width: 960px;
   color: #060f0acc;
