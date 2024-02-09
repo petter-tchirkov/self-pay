@@ -1,5 +1,5 @@
 <template>
-  <section class="wrapper overflow-x-hidden mb-[70px]">
+  <section class="wrapper overflow-x-hidden pb-[70px]">
     <div class="search pt-2">
       <div class="search__box">
         <InputText

@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper mb-[70px]" :class="{ dark: global.isDark }">
+  <div class="wrapper pb-[70px]" :class="{ dark: global.isDark }">
     <div class="logo">
       <Logo class="logo__image" />
       <h1 class="logo__text">SELF PAY</h1>
