@@ -142,8 +142,10 @@ const foodStore = useFoodStore();
       2px -2px 4px 0px #14645d33, -2px 2px 4px 0px #14645d33,
       -1px -1px 2px 0px #14645d80 inset, 1px 1px 2px 0px #30ead94d inset;
 
-    padding: 14px 40px;
+    padding: 14px 44px;
     color: #f3f3f3;
+    font-size: 18px;
+    line-height: 20px;
   }
 }
 </style>
