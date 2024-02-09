@@ -63,7 +63,7 @@ const { locale } = useI18n();
     display: flex;
     align-items: center;
     gap: 2px;
-    margin-bottom: 58px;
+    margin-bottom: 38px;
     // box-shadow: 2px 2px 5px 0px #16655EE5 inset, -2px -2px 4px 0px #32EBDAE5 inset, 2px -2px 4px 0px #16655E33 inset, -2px 2px 4px 0px #16655E33 inset, -1px -1px 2px 0px #16655E80, 1px 1px 2px 0px #32EBDA4D;
 
     &__logo {
@@ -111,7 +111,7 @@ const { locale } = useI18n();
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 15px;
 
     &__btn {
       background: linear-gradient(
@@ -120,7 +120,7 @@ const { locale } = useI18n();
         #f6f6f6 0.01%,
         #dddddd 100%
       );
-      padding: 22px 40px;
+      padding: 16px 40px;
       border-radius: 15px;
       display: flex;
       flex-direction: column;
@@ -129,6 +129,11 @@ const { locale } = useI18n();
       box-shadow: 2px 2px 5px 0px #929292e5, -2px -2px 4px 0px #ffffffe5,
         2px -2px 4px 0px #92929233, -2px 2px 4px 0px #92929233,
         -1px -1px 2px 0px #92929280 inset, 1px 1px 2px 0px #ffffff4d inset;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
 
       &:active {
         background: linear-gradient(180deg, #c8c8c8 0%, #919191 100%);

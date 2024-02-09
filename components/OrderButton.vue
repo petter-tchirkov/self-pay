@@ -1,6 +1,6 @@
 <template>
   <div
-    class="order"
+    class="order orverflow-auto"
     ref="el"
     :style="[
       isOrderOpened
@@ -45,7 +45,7 @@
           <span>{{ $t("orderService") }} (10%):</span>
           <span>75 {{ $t("uah") }}</span>
         </div>
-        <div class="cost__total flex justify-between text-[25px] mb-[25px]">
+        <div class="cost__total flex justify-between text-[25px] mb-[15px]">
           <span>{{ $t("orderTotalPay") }}</span>
           <span>975 {{ $t("uah") }}</span>
         </div>
@@ -117,7 +117,6 @@ const isOrderOpened = ref(false);
     gap: 15px;
     font-size: 18px;
     color: #060f0acc;
-    margin-bottom: 28px;
   }
 
   &__list {

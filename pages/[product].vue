@@ -4,11 +4,7 @@
       <img src="/images/icons/arrow.svg" alt="" />
     </button>
     <div class="product__picture">
-      <img
-        class="product__image mb-[78px]"
-        src="/images/icons/product.png"
-        alt=""
-      />
+      <img class="product__image" src="/images/icons/product.png" alt="" />
     </div>
     <div class="product__content">
       <div class="product__description">
@@ -76,6 +72,7 @@ const foodStore = useFoodStore();
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 1;
     width: 100%;
     padding-inline: 40px;
   }
