@@ -1,5 +1,6 @@
 export const useGlobalStore = defineStore("global", () => {
   const isDark = ref(false);
+  const isOrderOpened = ref(false);
 
   const allCheckd = ref(false);
 
@@ -26,5 +27,6 @@ export const useGlobalStore = defineStore("global", () => {
     isDark,
     langData,
     allCheckd,
+    isOrderOpened,
   };
 });

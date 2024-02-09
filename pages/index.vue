@@ -1,5 +1,10 @@
 <template>
   <div class="wrapper pb-[70px]" :class="{ dark: global.isDark }">
+    <div
+      class="overlay w-full fixed top-0 left-0 bg-black bg-opacity-40 h-screen z-30"
+      style="backdrop-filter: blur(4px)"
+      :class="{ hidden: !isOrderOpened }"
+    ></div>
     <div class="logo">
       <Logo class="logo__image" />
       <h1 class="logo__text">SELF PAY</h1>
@@ -35,6 +40,7 @@
 <script setup lang="ts">
 const global = useGlobalStore();
 const { locale } = useI18n();
+const { isOrderOpened } = storeToRefs(useGlobalStore());
 </script>
 
 <style scoped lang="scss">

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="order orverflow-auto"
+    class="order orverflow-y-auto z-50"
     ref="el"
     :style="[
       isOrderOpened
@@ -8,49 +8,51 @@
         : `transform:translateY(${height - 70}px)`,
     ]"
   >
-    <button
-      @click="isOrderOpened = !isOrderOpened"
-      :class="['order__btn', { dark: isDark }, { opened: isOrderOpened }]"
-    >
-      {{ $t("order", { number: 1, price: 250 }) }}
-    </button>
-    <div class="order__list">
-      <OrderItem id="hek" image="/images/hek.png" title="hek" :price="250" />
-      <OrderItem
-        id="salad"
-        image="/images/salad.png"
-        title="salad"
-        :price="250"
-      />
-      <OrderItem
-        id="salmon"
-        image="/images/salmon.png"
-        title="salmon"
-        :price="250"
-      />
-      <div class="order__all">
-        <OrderCheckbox />
-        <span>{{ $t("orderAll") }}</span>
-      </div>
-      <div class="order__cost cost">
-        <div class="cost__total flex justify-between text-[15px]">
-          <span>{{ $t("orderTotal") }}:</span>
-          <span>750 {{ $t("uah") }}</span>
+    <div class="order__wrapper overflow-y-auto">
+      <button
+        @click="isOrderOpened = !isOrderOpened"
+        :class="['order__btn', { dark: isDark }, { opened: isOrderOpened }]"
+      >
+        {{ $t("order", { number: 1, price: 250 }) }}
+      </button>
+      <div class="order__list">
+        <OrderItem id="hek" image="/images/hek.png" title="hek" :price="250" />
+        <OrderItem
+          id="salad"
+          image="/images/salad.png"
+          title="salad"
+          :price="250"
+        />
+        <OrderItem
+          id="salmon"
+          image="/images/salmon.png"
+          title="salmon"
+          :price="250"
+        />
+        <div class="order__all">
+          <OrderCheckbox />
+          <span>{{ $t("orderAll") }}</span>
         </div>
-        <div class="cost__total flex justify-between text-[15px]">
-          <span>{{ $t("orderTax") }} (20%):</span>
-          <span>150 {{ $t("uah") }}</span>
-        </div>
-        <div class="cost__total flex justify-between text-[15px]">
-          <span>{{ $t("orderService") }} (10%):</span>
-          <span>75 {{ $t("uah") }}</span>
-        </div>
-        <div class="cost__total flex justify-between text-[25px] mb-[15px]">
-          <span>{{ $t("orderTotalPay") }}</span>
-          <span>975 {{ $t("uah") }}</span>
-        </div>
-        <div class="flex justify-center">
-          <button class="order__pay">{{ $t("orderPay") }}</button>
+        <div class="order__cost cost">
+          <div class="cost__total flex justify-between text-[15px]">
+            <span>{{ $t("orderTotal") }}:</span>
+            <span>750 {{ $t("uah") }}</span>
+          </div>
+          <div class="cost__total flex justify-between text-[15px]">
+            <span>{{ $t("orderTax") }} (20%):</span>
+            <span>150 {{ $t("uah") }}</span>
+          </div>
+          <div class="cost__total flex justify-between text-[15px]">
+            <span>{{ $t("orderService") }} (10%):</span>
+            <span>75 {{ $t("uah") }}</span>
+          </div>
+          <div class="cost__total flex justify-between text-[25px] mb-[15px]">
+            <span>{{ $t("orderTotalPay") }}</span>
+            <span>975 {{ $t("uah") }}</span>
+          </div>
+          <div class="flex justify-center">
+            <button class="order__pay">{{ $t("orderPay") }}</button>
+          </div>
         </div>
       </div>
     </div>
@@ -59,15 +61,13 @@
 
 <script setup lang="ts">
 import { useElementSize, onClickOutside } from "@vueuse/core";
-const { isDark } = storeToRefs(useGlobalStore());
+const { isDark, isOrderOpened } = storeToRefs(useGlobalStore());
 
 const el = ref<HTMLElement | null>(null);
 const { height } = useElementSize(el);
 onClickOutside(el, () => {
   isOrderOpened.value = false;
 });
-
-const isOrderOpened = ref(false);
 </script>
 
 <style scoped lang="scss">
@@ -76,15 +76,12 @@ const isOrderOpened = ref(false);
   position: fixed;
   bottom: 0;
   left: 0;
-  height: min-content;
   max-width: 960px;
   color: #060f0acc;
-  background: linear-gradient(135deg, #f6f6f6 0%, #dddddd 100%);
   font-size: 25px;
   font-weight: 600;
   line-height: 27.1px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  border-radius: 15px 15px 0 0;
   transition: 0.3s transform ease-in-out;
 
   &.opened {
@@ -101,6 +98,7 @@ const isOrderOpened = ref(false);
     width: 100%;
     border-radius: 15px 15px 0 0;
     transition: 0.3s;
+    background: linear-gradient(135deg, #f6f6f6 0%, #dddddd 100%);
 
     &.opened {
       background: linear-gradient(180deg, #31cbbd 0%, #169185 100%);
@@ -124,6 +122,7 @@ const isOrderOpened = ref(false);
     display: flex;
     flex-direction: column;
     gap: 25px;
+    background: linear-gradient(135deg, #f6f6f6 0%, #dddddd 100%);
   }
 
   &__pay {
