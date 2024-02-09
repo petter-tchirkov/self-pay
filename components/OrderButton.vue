@@ -16,22 +16,32 @@
         {{ $t("order", { number: 1, price: 250 }) }}
       </button>
       <div class="order__list">
-        <OrderItem id="hek" image="/images/hek.png" title="hek" :price="250" />
-        <OrderItem
-          id="salad"
-          image="/images/salad.png"
-          title="salad"
-          :price="250"
-        />
-        <OrderItem
-          id="salmon"
-          image="/images/salmon.png"
-          title="salmon"
-          :price="250"
-        />
-        <div class="order__all">
-          <OrderCheckbox />
-          <span>{{ $t("orderAll") }}</span>
+        <div class="order__boxes">
+          <OrderItem
+            class="mb-6"
+            id="hek"
+            image="/images/hek.png"
+            title="hek"
+            :price="250"
+          />
+          <OrderItem
+            class="mb-6"
+            id="salad"
+            image="/images/salad.png"
+            title="salad"
+            :price="250"
+          />
+          <OrderItem
+            class="mb-6"
+            id="salmon"
+            image="/images/salmon.png"
+            title="salmon"
+            :price="250"
+          />
+          <div class="order__all">
+            <OrderCheckbox />
+            <span>{{ $t("orderAll") }}</span>
+          </div>
         </div>
         <div class="order__cost cost">
           <div class="cost__total flex justify-between text-[15px]">

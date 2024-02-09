@@ -41,6 +41,8 @@
   overflow-y:hidden;
   background: linear-gradient( #eeeeee, #d9d9d9);
   position: relative;
+  background: url('/images/bg.jpg') no-repeat center center;
+  background-size: cover;
 }
 .wrapper.dark {
   background: linear-gradient(#46474d, #1B1C1F);

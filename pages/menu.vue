@@ -66,9 +66,9 @@ const selectedFood = ref(0);
 </script>
 
 <style scoped lang="scss">
-header {
-  background: linear-gradient(180deg, #f4f4f4 0%, #e9e9e9 100%);
-}
+// header {
+//   background: linear-gradient(180deg, #f4f4f4 0%, #e9e9e9 100%);
+// }
 .search {
   display: flex;
   gap: 15px;
