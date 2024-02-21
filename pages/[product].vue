@@ -36,7 +36,6 @@
 </template>
 
 <script setup lang="ts">
-const foodStore = useFoodStore();
 </script>
 
 <style scoped lang="scss">

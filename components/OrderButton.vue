@@ -1,6 +1,6 @@
 <template>
   <div
-    class="order orverflow-y-auto z-50"
+    class="order orverflow-y-hidden z-50 max-h-[70%]"
     ref="el"
     :style="[
       isOrderOpened
@@ -8,14 +8,14 @@
         : `transform:translateY(${height - 70}px)`,
     ]"
   >
-    <div class="order__wrapper overflow-y-auto">
+    <div class="order__wrapper overflow-y-hidden">
       <button
-        @click="isOrderOpened = !isOrderOpened"
         :class="['order__btn', { dark: isDark }, { opened: isOrderOpened }]"
+        @click="isOrderOpened = !isOrderOpened"
       >
         {{ $t("order", { number: 1, price: 250 }) }}
       </button>
-      <div class="order__list">
+      <div class="order__list overflow-y-auto">
         <div class="order__boxes">
           <OrderItem
             class="mb-6"

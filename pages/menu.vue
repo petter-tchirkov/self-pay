@@ -5,7 +5,10 @@
       style="backdrop-filter: blur(4px)"
       :class="{ hidden: !isOrderOpened }"
     ></div>
-    <header class="fixed top-0 w-full z-10 pt-4">
+    <header
+      class="fixed top-0 w-full z-10 pt-4 transition-all duration-300"
+      :class="{ 'bg-[#EEEEEE]': y > 0 }"
+    >
       <div class="search pt-l">
         <div class="search__box">
           <InputText
@@ -13,10 +16,16 @@
             :placeholder="$t('search')"
             class="search__input"
           />
-          <img src="/images/icons/search.svg" alt="" />
+          <img
+            src="/images/icons/search.svg"
+            alt=""
+          />
         </div>
         <button class="search__filter">
-          <img src="/images/icons/filter.svg" alt="" />
+          <img
+            src="/images/icons/filter.svg"
+            alt=""
+          />
         </button>
       </div>
       <div class="foods">
@@ -41,7 +50,10 @@
           :food="foodStore.seconds"
           :title="$t('categories.seconds')"
         />
-        <FoodSlider :food="foodStore.salads" :title="$t('categories.salads')" />
+        <FoodSlider
+          :food="foodStore.salads"
+          :title="$t('categories.salads')"
+        />
       </div>
     </div>
     <OrderButton />
@@ -49,89 +61,92 @@
 </template>
 
 <script setup lang="ts">
-const search = ref("");
-const { t } = useI18n();
-const foods = ref([
-  { name: t("categories.all"), active: false },
-  { name: t("categories.popular"), active: false },
-  { name: t("categories.burgers"), active: false },
-  { name: t("categories.salads"), active: false },
-  { name: t("categories.pizza"), active: false },
-]);
+  import { useWindowScroll } from '@vueuse/core'
+  const { y } = useWindowScroll()
 
-const { isOrderOpened } = storeToRefs(useGlobalStore());
+  const search = ref('')
+  const { t } = useI18n()
+  const foods = ref([
+    { name: t('categories.all'), active: false },
+    { name: t('categories.popular'), active: false },
+    { name: t('categories.burgers'), active: false },
+    { name: t('categories.salads'), active: false },
+    { name: t('categories.pizza'), active: false }
+  ])
 
-const foodStore = useFoodStore();
-const selectedFood = ref(0);
+  const { isOrderOpened } = storeToRefs(useGlobalStore())
+
+  const foodStore = useFoodStore()
+  const selectedFood = ref(0)
 </script>
 
 <style scoped lang="scss">
-// header {
-//   background: linear-gradient(180deg, #f4f4f4 0%, #e9e9e9 100%);
-// }
-.search {
-  display: flex;
-  gap: 15px;
-  padding-inline: 16px;
+  // header {
+  //   background: linear-gradient(180deg, #f4f4f4 0%, #e9e9e9 100%);
+  // }
+  .search {
+    display: flex;
+    gap: 15px;
+    padding-inline: 16px;
 
-  &__box {
-    position: relative;
-    flex: 1;
+    &__box {
+      position: relative;
+      flex: 1;
 
-    img {
-      position: absolute;
-      top: 45%;
-      left: 15px;
-      transform: translateY(-50%);
+      img {
+        position: absolute;
+        top: 45%;
+        left: 15px;
+        transform: translateY(-50%);
+      }
+    }
+
+    &__input {
+      border-radius: 15px;
+      height: 40px;
+      padding-left: 38px;
+      flex: 1;
+      width: 100%;
+      box-shadow: 0px 2px 6px 0px #90909040;
+
+      &::placeholder {
+        color: #666666;
+      }
+    }
+
+    &__filter {
+      background: #fff;
+      padding-inline: 15px;
+      padding-block: 12px;
+      border-radius: 15px;
     }
   }
 
-  &__input {
-    border-radius: 15px;
-    height: 40px;
-    padding-left: 38px;
-    flex: 1;
-    width: 100%;
-    box-shadow: 0px 2px 6px 0px #90909040;
+  .foods {
+    display: flex;
+    overflow-x: scroll;
+    padding-block: 20px;
+    padding-inline-start: 16px;
 
-    &::placeholder {
-      color: #666666;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &__btn {
+      padding: 10px 15px;
+      border-radius: 15px;
+      color: #060f0acc;
+      transition: all 0.3s;
+      margin-right: 15px;
+      background: linear-gradient(180deg, #f4f4f4 0%, #e9e9e9 100%);
+
+      box-shadow: 2px 2px 5px 0px #8c8c8ce5, -2px -2px 4px 0px #ffffffe5,
+        2px -2px 4px 0px #8c8c8c33, -2px 2px 4px 0px #8c8c8c33,
+        -1px -1px 2px 0px #8c8c8c80 inset, 1px 1px 2px 0px #ffffff4d inset;
+
+      &.active {
+        background: #299d92;
+      }
     }
   }
-
-  &__filter {
-    background: #fff;
-    padding-inline: 15px;
-    padding-block: 12px;
-    border-radius: 15px;
-  }
-}
-
-.foods {
-  display: flex;
-  overflow-x: scroll;
-  padding-block: 20px;
-  padding-inline-start: 16px;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  &__btn {
-    padding: 10px 15px;
-    border-radius: 15px;
-    color: #060f0acc;
-    transition: all 0.3s;
-    margin-right: 15px;
-    background: linear-gradient(180deg, #f4f4f4 0%, #e9e9e9 100%);
-
-    box-shadow: 2px 2px 5px 0px #8c8c8ce5, -2px -2px 4px 0px #ffffffe5,
-      2px -2px 4px 0px #8c8c8c33, -2px 2px 4px 0px #8c8c8c33,
-      -1px -1px 2px 0px #8c8c8c80 inset, 1px 1px 2px 0px #ffffff4d inset;
-
-    &.active {
-      background: #299d92;
-    }
-  }
-}
 </style>

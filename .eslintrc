@@ -1,0 +1,16 @@
+{
+  "extends": ["@nuxtjs/eslint-config-typescript"],
+  "ignorePatterns": ["**/presets/**"],
+  "rules": {
+    "indent": ["off"],
+    "comma-dangle": ["off"],
+    "vue/singleline-html-element-content-newline": ["off"],
+    "vue/multi-word-component-names": ["off"],
+    "vue/html-self-closing": ["off"],
+    "space-before-function-paren": ["off"],
+    "arrow-parens": ["off"],
+    "vue/no-v-html": ["off"],
+    "vue/attribute-hyphenation": ["off"],
+    "func-call-spacing": "off"
+  }
+}
