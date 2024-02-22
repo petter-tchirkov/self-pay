@@ -18,15 +18,13 @@
     "nuxt-primevue": "^0.2.2",
     "sass": "^1.70.0",
     "vue": "^3.4.15",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "@rollup/rollup-linux-x64-gnu": "4.6.1"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.5.1",
     "@vueuse/nuxt": "^10.7.2",
     "primevue": "^3.47.2",
     "vue3-carousel": "^0.3.1"
-  },
-  "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "4.6.1"
-  },
+  }
 }
