@@ -3,76 +3,76 @@
     <h2 class="catalogue__title">{{ title }}</h2>
     <div class="catalogue__slider">
       <FoodItem
+        v-for="f in food"
+        :key="f.name"
         :name="f.name"
         :image="f.img"
         :price="f.price"
-        v-for="f in food"
       />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-const { title = "Burgers", food } = defineProps<{
-  title: string;
-  food: {
-    name: string;
-    img: string;
-    price: number;
-  }[];
-}>();
+  const { title = 'Burgers', food } = defineProps<{
+    title: string
+    food: {
+      name: string
+      img: string
+      price: number
+    }[]
+  }>()
 
-const popular = ref([
-  {
-    name: "Хек з овочами в томатному соусі",
-    img: "/images/hek.png",
-    price: 150,
-  },
-  {
-    name: "Салат-фреш Грецький",
-    img: "/images/salad.png",
-    price: 69,
-  },
-  {
-    name: "Burger",
-    img: "/images/burger.png",
-    price: 255,
-  },
-]);
-const foodData = ref([
-  ,
-  {
-    name: "Burger",
-    img: "/images/burger.png",
-    price: 255,
-  },
-  {
-    name: "Burger",
-    img: "/images/burger.png",
-    price: 255,
-  },
-]);
+  const popular = ref([
+    {
+      name: 'Хек з овочами в томатному соусі',
+      img: '/images/hek.png',
+      price: 150
+    },
+    {
+      name: 'Салат-фреш Грецький',
+      img: '/images/salad.png',
+      price: 69
+    },
+    {
+      name: 'Burger',
+      img: '/images/burger.png',
+      price: 255
+    }
+  ])
+  const foodData = ref([
+    {
+      name: 'Burger',
+      img: '/images/burger.png',
+      price: 255
+    },
+    {
+      name: 'Burger',
+      img: '/images/burger.png',
+      price: 255
+    }
+  ])
 </script>
 
 <style scoped lang="scss">
-.catalogue {
-  padding-left: 16px;
-  margin-bottom: 10px;
-  position: relative;
+  .catalogue {
+    padding-left: 16px;
+    margin-bottom: 10px;
+    position: relative;
 
-  &__title {
-    font-size: 25px;
-    font-weight: 600;
-  }
+    &__title {
+      font-size: 25px;
+      font-weight: 600;
+    }
 
-  &__slider {
-    display: flex;
-    overflow-x: scroll;
-    padding-block: 10px;
+    &__slider {
+      display: flex;
+      overflow-x: scroll;
+      padding-block: 10px;
 
-    &::-webkit-scrollbar {
-      display: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
-}
 </style>

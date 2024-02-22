@@ -20,7 +20,7 @@ export default defineNuxtConfig({
       unstyled: true
     },
     components: {
-      include: ['Dropdown', 'InputText', 'Checkbox', 'Carousel']
+      include: ['Dropdown', 'InputText', 'Checkbox', 'InputMask', 'Password']
     }
   },
   i18n: {

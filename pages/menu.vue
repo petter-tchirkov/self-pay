@@ -1,5 +1,5 @@
 <template>
-  <section class="wrapper overflow-x-hidden pb-[70px]">
+  <section class="wrapper overflow-x-hidden">
     <div
       class="overlay w-full fixed top-0 left-0 bg-black bg-opacity-40 h-screen z-30"
       style="backdrop-filter: blur(4px)"
@@ -9,25 +9,7 @@
       class="fixed top-0 w-full z-10 pt-4 transition-all duration-300"
       :class="{ 'bg-[#EEEEEE]': y > 0 }"
     >
-      <div class="search pt-l">
-        <div class="search__box">
-          <InputText
-            v-model="search"
-            :placeholder="$t('search')"
-            class="search__input"
-          />
-          <img
-            src="/images/icons/search.svg"
-            alt=""
-          />
-        </div>
-        <button class="search__filter">
-          <img
-            src="/images/icons/filter.svg"
-            alt=""
-          />
-        </button>
-      </div>
+      <Search />
       <div class="foods">
         <button
           v-for="(food, index) in foods"
@@ -40,8 +22,8 @@
         </button>
       </div>
     </header>
-    <div class="pt-40">
-      <div class="overflow-y-auto">
+    <div class="pt-[124px] h-screen">
+      <div class="overflow-y-auto h-full pb-10 pt-5">
         <FoodSlider
           :food="foodStore.popular"
           :title="$t('categories.popular')"
@@ -64,7 +46,6 @@
   import { useWindowScroll } from '@vueuse/core'
   const { y } = useWindowScroll()
 
-  const search = ref('')
   const { t } = useI18n()
   const foods = ref([
     { name: t('categories.all'), active: false },
@@ -84,43 +65,6 @@
   // header {
   //   background: linear-gradient(180deg, #f4f4f4 0%, #e9e9e9 100%);
   // }
-  .search {
-    display: flex;
-    gap: 15px;
-    padding-inline: 16px;
-
-    &__box {
-      position: relative;
-      flex: 1;
-
-      img {
-        position: absolute;
-        top: 45%;
-        left: 15px;
-        transform: translateY(-50%);
-      }
-    }
-
-    &__input {
-      border-radius: 15px;
-      height: 40px;
-      padding-left: 38px;
-      flex: 1;
-      width: 100%;
-      box-shadow: 0px 2px 6px 0px #90909040;
-
-      &::placeholder {
-        color: #666666;
-      }
-    }
-
-    &__filter {
-      background: #fff;
-      padding-inline: 15px;
-      padding-block: 12px;
-      border-radius: 15px;
-    }
-  }
 
   .foods {
     display: flex;
@@ -140,9 +84,13 @@
       margin-right: 15px;
       background: linear-gradient(180deg, #f4f4f4 0%, #e9e9e9 100%);
 
-      box-shadow: 2px 2px 5px 0px #8c8c8ce5, -2px -2px 4px 0px #ffffffe5,
-        2px -2px 4px 0px #8c8c8c33, -2px 2px 4px 0px #8c8c8c33,
-        -1px -1px 2px 0px #8c8c8c80 inset, 1px 1px 2px 0px #ffffff4d inset;
+      box-shadow:
+        2px 2px 5px 0px #8c8c8ce5,
+        -2px -2px 4px 0px #ffffffe5,
+        2px -2px 4px 0px #8c8c8c33,
+        -2px 2px 4px 0px #8c8c8c33,
+        -1px -1px 2px 0px #8c8c8c80 inset,
+        1px 1px 2px 0px #ffffff4d inset;
 
       &.active {
         background: #299d92;

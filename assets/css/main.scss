@@ -38,17 +38,65 @@
 .wrapper {
   max-width: 960px;
   height: 100dvh;
-  overflow-y:hidden;
-  background: linear-gradient( #eeeeee, #d9d9d9);
+  overflow-y: hidden;
+  background: linear-gradient(#eeeeee, #d9d9d9);
   position: relative;
   background: url('/images/bg.jpg') no-repeat center center;
   background-size: cover;
 }
 .wrapper.dark {
-  background: linear-gradient(#46474d, #1B1C1F);
+  background: linear-gradient(#46474d, #1b1c1f);
 }
-
 
 .container {
   padding-inline: 55px;
+}
+
+.carousel {
+  &__pagination {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    &-item {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+
+      button {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+
+        &::after {
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background: #c2c2c2;
+        }
+      }
+
+      button.carousel__pagination-button--active:after {
+        background: #858585;
+      }
+    }
+  }
+}
+
+.input-shadow {
+  box-shadow:
+    2px 2px 5px 0px #929292e5,
+    -2px -2px 4px 0px #ffffffe5,
+    2px -2px 4px 0px #92929233,
+    -2px 2px 4px 0px #92929233,
+    -1px -1px 2px 0px #92929280 inset,
+    1px 1px 2px 0px #ffffff4d inset;
+  background: linear-gradient(180deg, #f4f4f4 0%, #f6f6f6 0.01%, #dddddd 100%);
+
+  width: 100%;
+  border-radius: 15px;
+  padding-block: 8px;
+  padding-left: 15px;
 }

@@ -1,67 +1,72 @@
 <template>
   <div
-    class="order orverflow-y-hidden z-50 max-h-[70%]"
     ref="el"
+    class="order z-50 max-h-[80%]"
     :style="[
       isOrderOpened
-        ? 'transform:translateY(0)'
-        : `transform:translateY(${height - 70}px)`,
+        ? `transform:translateY(${height - 645}px)`
+        : `transform:translateY(${height - 47}px)`
     ]"
   >
-    <div class="order__wrapper overflow-y-hidden">
+    <div class="order__wrapper">
       <button
         :class="['order__btn', { dark: isDark }, { opened: isOrderOpened }]"
         @click="isOrderOpened = !isOrderOpened"
       >
-        {{ $t("order", { number: 1, price: 250 }) }}
+        {{ $t('order', { number: 1, price: 250 }) }}
       </button>
-      <div class="order__list overflow-y-auto">
+      <div class="order__list">
         <div class="order__boxes">
           <OrderItem
-            class="mb-6"
             id="hek"
+            class="mb-6"
             image="/images/hek.png"
             title="hek"
             :price="250"
           />
           <OrderItem
-            class="mb-6"
             id="salad"
+            class="mb-6"
             image="/images/salad.png"
             title="salad"
             :price="250"
           />
           <OrderItem
-            class="mb-6"
             id="salmon"
+            class="mb-6"
             image="/images/salmon.png"
             title="salmon"
             :price="250"
           />
           <div class="order__all">
             <OrderCheckbox />
-            <span>{{ $t("orderAll") }}</span>
+            <span>{{ $t('orderAll') }}</span>
           </div>
         </div>
         <div class="order__cost cost">
           <div class="cost__total flex justify-between text-[15px]">
-            <span>{{ $t("orderTotal") }}:</span>
-            <span>750 {{ $t("uah") }}</span>
+            <span>{{ $t('orderTotal') }}:</span>
+            <span>750 {{ $t('uah') }}</span>
           </div>
           <div class="cost__total flex justify-between text-[15px]">
-            <span>{{ $t("orderTax") }} (20%):</span>
-            <span>150 {{ $t("uah") }}</span>
+            <span>{{ $t('orderTax') }} (20%):</span>
+            <span>150 {{ $t('uah') }}</span>
           </div>
           <div class="cost__total flex justify-between text-[15px]">
-            <span>{{ $t("orderService") }} (10%):</span>
-            <span>75 {{ $t("uah") }}</span>
+            <span>{{ $t('orderService') }} (10%):</span>
+            <span>75 {{ $t('uah') }}</span>
           </div>
           <div class="cost__total flex justify-between text-[25px] mb-[15px]">
-            <span>{{ $t("orderTotalPay") }}</span>
-            <span>975 {{ $t("uah") }}</span>
+            <span>{{ $t('orderTotalPay') }}</span>
+            <span class="font-extrabold">975 {{ $t('uah') }}</span>
           </div>
           <div class="flex justify-center">
-            <button class="order__pay">{{ $t("orderPay") }}</button>
+            <button
+              class="order__pay"
+              @click="$router.push('/tips')"
+            >
+              {{ $t('orderPay') }}
+            </button>
           </div>
         </div>
       </div>
@@ -70,91 +75,102 @@
 </template>
 
 <script setup lang="ts">
-import { useElementSize, onClickOutside } from "@vueuse/core";
-const { isDark, isOrderOpened } = storeToRefs(useGlobalStore());
+  import { useElementSize, onClickOutside } from '@vueuse/core'
+  const { isDark, isOrderOpened } = storeToRefs(useGlobalStore())
 
-const el = ref<HTMLElement | null>(null);
-const { height } = useElementSize(el);
-onClickOutside(el, () => {
-  isOrderOpened.value = false;
-});
+  const el = ref<HTMLElement | null>(null)
+  const { height } = useElementSize(el)
+  onClickOutside(el, () => {
+    isOrderOpened.value = false
+  })
 </script>
 
 <style scoped lang="scss">
-.order {
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  max-width: 960px;
-  color: #060f0acc;
-  font-size: 25px;
-  font-weight: 600;
-  line-height: 27.1px;
-  border-radius: 15px 15px 0 0;
-  transition: 0.3s transform ease-in-out;
-
-  &.opened {
-    transform: translateY(0);
-  }
-
-  box-shadow: 20px -5px 67.30000305175781px 0px #299d9247,
-    -2px 5px 20.399999618530273px 0px #299d9208, 2px -2px 4px 0px #299d9233,
-    -2px 2px 4px 0px #299d9233;
-
-  &__btn {
-    padding-top: 20px;
-    padding-bottom: 24px;
+  .order {
     width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    max-width: 960px;
+    color: #060f0acc;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 27.1px;
     border-radius: 15px 15px 0 0;
-    transition: 0.3s;
-    background: linear-gradient(135deg, #f6f6f6 0%, #dddddd 100%);
+    transition: 0.3s transform ease-in-out;
 
     &.opened {
-      background: linear-gradient(180deg, #31cbbd 0%, #169185 100%);
-      box-shadow: 2px 2px 5px 0px #14645de5 inset,
-        -2px -2px 4px 0px #30ead9e5 inset, 2px -2px 4px 0px #14645d33 inset,
-        -2px 2px 4px 0px #14645d33 inset, -1px -1px 2px 0px #14645d80,
-        1px 1px 2px 0px #30ead94d;
+      transform: translateY(0);
+    }
+
+    box-shadow:
+      20px -5px 67.30000305175781px 0px #299d9247,
+      -2px 5px 20.399999618530273px 0px #299d9208,
+      2px -2px 4px 0px #299d9233,
+      -2px 2px 4px 0px #299d9233;
+
+    &__btn {
+      padding-block: 10px;
+      width: 100%;
+      border-radius: 15px 15px 0 0;
+      transition: 0.3s;
+      background: linear-gradient(135deg, #f6f6f6 0%, #dddddd 100%);
+
+      &.opened {
+        background: linear-gradient(180deg, #31cbbd 0%, #169185 100%);
+        box-shadow:
+          2px 2px 5px 0px #14645de5 inset,
+          -2px -2px 4px 0px #30ead9e5 inset,
+          2px -2px 4px 0px #14645d33 inset,
+          -2px 2px 4px 0px #14645d33 inset,
+          -1px -1px 2px 0px #14645d80,
+          1px 1px 2px 0px #30ead94d;
+      }
+    }
+
+    &__all {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 18px;
+      color: #060f0acc;
+    }
+
+    &__list {
+      padding: 15px;
+      background: linear-gradient(135deg, #f6f6f6 0%, #dddddd 100%);
+    }
+
+    &__boxes {
+      margin-bottom: 20px;
+    }
+
+    &__pay {
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 15px;
+      background: linear-gradient(180deg, #32c5b8 0%, #12897e 100%);
+      padding: 14px 58px;
+      color: #f3f3f3;
+
+      box-shadow:
+        2px 2px 5px 0px #14645de5,
+        -2px -2px 4px 0px #30ead9e5,
+        2px -2px 4px 0px #14645d33,
+        -2px 2px 4px 0px #14645d33,
+        -1px -1px 2px 0px #14645d80 inset,
+        1px 1px 2px 0px #30ead94d ins;
     }
   }
 
-  &__all {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: 18px;
-    color: #060f0acc;
+  .order__btn.dark {
+    background: linear-gradient(135deg, #2c2d31 0%, #44464d 100%);
+    color: #f1f2f6cc;
+
+    box-shadow:
+      20px -5px 67.30000305175781px 0px #ed536047,
+      -2px 5px 20.399999618530273px 0px #ed536008,
+      2px -2px 4px 0px #ed536033,
+      -2px 2px 4px 0px #ed536033;
   }
-
-  &__list {
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    background: linear-gradient(135deg, #f6f6f6 0%, #dddddd 100%);
-  }
-
-  &__pay {
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 15px;
-    background: linear-gradient(180deg, #32c5b8 0%, #12897e 100%);
-    padding: 14px 58px;
-    color: #f3f3f3;
-
-    box-shadow: 2px 2px 5px 0px #14645de5, -2px -2px 4px 0px #30ead9e5,
-      2px -2px 4px 0px #14645d33, -2px 2px 4px 0px #14645d33,
-      -1px -1px 2px 0px #14645d80 inset, 1px 1px 2px 0px #30ead94d ins;
-  }
-}
-
-.order__btn.dark {
-  background: linear-gradient(135deg, #2c2d31 0%, #44464d 100%);
-  color: #f1f2f6cc;
-
-  box-shadow: 20px -5px 67.30000305175781px 0px #ed536047,
-    -2px 5px 20.399999618530273px 0px #ed536008, 2px -2px 4px 0px #ed536033,
-    -2px 2px 4px 0px #ed536033;
-}
 </style>
