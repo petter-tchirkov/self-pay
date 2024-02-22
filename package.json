@@ -25,5 +25,8 @@
     "@vueuse/nuxt": "^10.7.2",
     "primevue": "^3.47.2",
     "vue3-carousel": "^0.3.1"
-  }
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.6.1"
+  },
 }
