@@ -91,7 +91,7 @@
             value="0"
             name="tip"
           />
-          <span>Без чайових</span>
+          <span>{{ $t('noTips') }}</span>
         </label>
         <label class="radio long">
           <input
@@ -100,7 +100,7 @@
             value="noTip"
             name="tip"
           />
-          <span>Увести вручну</span>
+          <span>{{ $t('otherSum') }}</span>
         </label>
       </div>
       <div class="tips__pay">

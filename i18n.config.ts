@@ -29,6 +29,8 @@ export default defineI18nConfig(() => ({
       cvv: 'CVV2',
       cardHolderName: 'Cardholder Name',
       tipSize: 'Tip size in uah',
+      noTips: 'No tip',
+      otherSum: 'Other',
       foods: {
         hek: 'Hek with vegetables in tomato sauce',
         salad: 'Greek salad-fresh',
@@ -40,7 +42,9 @@ export default defineI18nConfig(() => ({
         pizza: 'Pizza',
         sushi: 'Sushi',
         shaurma: 'Shaurma',
-        sweets: 'Sweets'
+        sweets: 'Sweets',
+        pizzaCheese: 'Pizza Cheese Salami',
+        pizzaPear: 'Pizza Cheese Pear'
       },
       categories: {
         all: 'All',
@@ -82,6 +86,8 @@ export default defineI18nConfig(() => ({
       cvv: 'Код CVV2',
       cardHolderName: 'Імʼя на картці',
       tipSize: 'Розмір чайових у грн',
+      noTips: 'Без чайових',
+      otherSum: 'Інша сума',
       foods: {
         hek: 'Хек з овочами в томаті',
         steak: 'Стейк курячий-гриль',
@@ -92,7 +98,9 @@ export default defineI18nConfig(() => ({
         pizza: 'Піца',
         sushi: 'Суші',
         shaurma: 'Шаурма',
-        sweets: 'Солодощі'
+        sweets: 'Солодощі',
+        pizzaCheese: 'Піца Сирна салямі',
+        pizzaPear: 'Піца Сирна груша'
       },
       categories: {
         all: 'Всі',

@@ -14,8 +14,9 @@
       <div class="payment__options">
         <label class="payment__option">
           <input
+            v-model="selectedPaymentMethod"
             type="radio"
-            value="25"
+            value="mc"
             name="tip"
           />
           <img
@@ -25,8 +26,9 @@
         </label>
         <label class="payment__option">
           <input
+            v-model="selectedPaymentMethod"
             type="radio"
-            value="50"
+            value="visa"
             name="tip"
           />
           <img
@@ -36,8 +38,9 @@
         </label>
         <label class="payment__option">
           <input
+            v-model="selectedPaymentMethod"
             type="radio"
-            value="25"
+            value="cash"
             name="tip"
           />
           <span>
@@ -46,8 +49,9 @@
         </label>
         <label class="payment__option">
           <input
+            v-model="selectedPaymentMethod"
             type="radio"
-            value="50"
+            value="ap"
             name="tip"
           />
           <img
@@ -57,8 +61,9 @@
         </label>
         <label class="payment__option">
           <input
+            v-model="selectedPaymentMethod"
             type="radio"
-            value="50"
+            value="gp"
             name="tip"
           />
           <img
@@ -68,8 +73,9 @@
         </label>
         <label class="payment__option">
           <input
+            v-model="selectedPaymentMethod"
             type="radio"
-            value="50"
+            value="pp"
             name="tip"
           />
           <img
@@ -81,6 +87,9 @@
       <div class="payment__card">
         <h3 class="payment__part">{{ $t('cardNumber') }}</h3>
         <InputMask
+          :disabled="
+            selectedPaymentMethod !== 'mc' && selectedPaymentMethod !== 'visa'
+          "
           class="input-shadow"
           mask="9999 9999 9999 9999"
           placeholder="XXXX XXXX XXXX XXXX"
@@ -90,6 +99,9 @@
         <div class="payment__card">
           <h3 class="payment__part">{{ $t('expirationDate') }}</h3>
           <InputMask
+            :disabled="
+              selectedPaymentMethod !== 'mc' && selectedPaymentMethod !== 'visa'
+            "
             class="input-shadow"
             mask="99/99"
             placeholder="ММ/РР"
@@ -99,6 +111,9 @@
         <div class="payment__card">
           <h3 class="payment__part">{{ $t('cvv') }}</h3>
           <input
+            :disabled="
+              selectedPaymentMethod !== 'mc' && selectedPaymentMethod !== 'visa'
+            "
             type="password"
             maxlength="3"
             class="input-shadow placeholder:text-[#060F0A] placeholder:text-3xl placeholder:tracking-widest"
@@ -110,7 +125,12 @@
       </div>
       <div class="payment__card">
         <h3 class="payment__part">{{ $t('cardHolderName') }}</h3>
-        <InputText class="input-shadow" />
+        <InputText
+          class="input-shadow"
+          :disabled="
+            selectedPaymentMethod !== 'mc' && selectedPaymentMethod !== 'visa'
+          "
+        />
       </div>
 
       <div class="payment__cost cost">
@@ -143,7 +163,9 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  const selectedPaymentMethod = ref()
+</script>
 
 <style scoped lang="scss">
   .payment__options {
@@ -252,5 +274,9 @@
         -1px -1px 2px 0px #14645d80 inset,
         1px 1px 2px 0px #30ead94d ins;
     }
+  }
+
+  input.input-shadow:disabled {
+    box-shadow: none;
   }
 </style>

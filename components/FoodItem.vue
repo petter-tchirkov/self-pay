@@ -9,7 +9,7 @@
         alt=""
       />
     </button>
-    <div class="w-full flex justify-center">
+    <div class="w-full flex justify-center pt-3">
       <img
         :src="image"
         alt=""
@@ -52,9 +52,13 @@
       margin-right: 16px;
     }
 
-    box-shadow: 2px 2px 5px 0px #929292e5, -2px -2px 4px 0px #ffffffe5,
-      2px -2px 4px 0px #92929233, -2px 2px 4px 0px #92929233,
-      -1px -1px 2px 0px #92929280 inset, 1px 1px 2px 0px #ffffff4d inset;
+    box-shadow:
+      2px 2px 5px 0px #929292e5,
+      -2px -2px 4px 0px #ffffffe5,
+      2px -2px 4px 0px #92929233,
+      -2px 2px 4px 0px #92929233,
+      -1px -1px 2px 0px #92929280 inset,
+      1px 1px 2px 0px #ffffff4d inset;
 
     &__favourite {
       position: absolute;
@@ -71,7 +75,7 @@
 
     &__name {
       color: #666666;
-      font-size: 14px;
+      font-size: 15px;
       line-height: 16px;
       font-weight: 600;
       margin-bottom: 4px;
