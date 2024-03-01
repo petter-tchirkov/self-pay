@@ -11,13 +11,13 @@
         </button>
       </div>
     </header>
-    <div class="pt-[124px] h-screen">
-      <div v-if="selectedFood === 'Всі'" class="overflow-y-auto h-full pb-10 pt-5">
+    <div>
+      <div v-if="selectedFood === 'Всі'" class="menu__all-products">
         <FoodSlider :food="foodStore.popular" :title="$t('categories.popular')" />
         <FoodSlider :food="foodStore.seconds" :title="$t('categories.seconds')" />
         <FoodSlider :food="foodStore.salads" :title="$t('categories.salads')" />
       </div>
-      <div v-else class="menu">
+      <div v-else ref="menu" class="menu">
         <h2 class="menu__title">{{ selectedFood }}</h2>
         <div class="menu__grid gap-5">
           <FoodItem class="!mr-0 !w-full" v-for="item in chosenPizza" :key="item.name" :name="item.name" :image="item.image"
@@ -28,10 +28,10 @@
     <OrderButton />
   </section>
 </template>
-
 <script setup lang="ts">
-import { useWindowScroll } from '@vueuse/core'
+import { useWindowScroll, useScrollLock } from '@vueuse/core'
 const { y } = useWindowScroll()
+
 
 const chosenPizza = ref([
   { name: 'pizzaCheese', price: 100, image: '/images/pizza1.png' },
@@ -97,11 +97,17 @@ const selectedFood = ref(t('categories.all'))
 }
 
 .menu {
-  padding-bottom: 22vh;
+  padding-block: 160px;
   padding-inline: 16px;
-  height: 800px;
-  overflow-y: auto;
+  height: 100%;
 
+  &__all-products {
+    padding-block: 160px;
+    padding-inline: 0;
+    padding-left: 16px;
+    height: 100%;
+  }
+    
   &__title {
     font-size: 25px;
     font-weight: 600;
@@ -115,9 +121,4 @@ const selectedFood = ref(t('categories.all'))
   }
 }
 
-@media (max-height: 680px) {
-  .menu {
-    padding-bottom: 320px;
-  }
-}
 </style>

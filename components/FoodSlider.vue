@@ -56,7 +56,6 @@
 
 <style scoped lang="scss">
   .catalogue {
-    padding-left: 16px;
     margin-bottom: 10px;
     position: relative;
 

@@ -37,8 +37,7 @@
 
 .wrapper {
   max-width: 960px;
-  height: 100dvh;
-  overflow-y: hidden;
+  min-height: 100vh;
   background: linear-gradient(#eeeeee, #d9d9d9);
   position: relative;
   background: url('/images/bg.jpg') no-repeat center center;
