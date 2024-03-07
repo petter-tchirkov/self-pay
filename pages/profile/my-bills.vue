@@ -12,7 +12,6 @@
       <ui-base-button
         v-for="bill in bills" :key="bill"
         :label="`${$t('cabinet.bill')} ${useDateFormat(bill, 'DD.MM.YYYY').value}`"
-        @click="$router.push(localePath(`/profile/order-${bill}`))"
       />
     </div>
   </div>
