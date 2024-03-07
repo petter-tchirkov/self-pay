@@ -8,7 +8,7 @@
       style="backdrop-filter: blur(4px)"
       :class="{ hidden: !isOrderOpened }"
     ></div>
-    <TopBar/>
+    <!-- <TopBar/> -->
     <div
       class="h-full overflow-auto pb-40"
       :style="`max-height: ${height}px`"
@@ -26,7 +26,7 @@
           </div>
         </div>
       </div>
-      <CarouselLite class="mb-7" />
+      <!-- <CarouselLite class="mb-7" /> -->
       <div class="container">
         <div class="info">
           <p class="info__table">{{ $t('table') }}: 9</p>
@@ -52,7 +52,7 @@
             <span>{{ $t(navItem.btn) }}</span>
           </NuxtLink>
         </div>
-        <OrderButton />
+        <OrderButton ref="orderButton"/>
       </div>
     </div>
   </div>
@@ -71,6 +71,15 @@
     { btn: 'payInPart', to: 'tips' },
     { btn: 'restMenu', to: 'menu' }
   ])
+
+  const orderButton = ref()
+  const { isSwiping, direction } = useSwipe(orderButton, {
+    onSwipe(e: TouchEvent) {
+      if (direction.value === 'down') {
+        isOrderOpened.value = false
+      }
+    }
+  })
 </script>
 
 <style scoped lang="scss">

@@ -1,7 +1,7 @@
 <template>
   <Dropdown
     v-model="locale"
-    :options="global.langData"
+    :options="global.getLanguagesWithoutCurrent(locale)"
     option-label="name"
     option-value="code"
     :pt="{
@@ -33,7 +33,7 @@
       }),
       list: () => ({
         class: [
-          'flex justify-center absolute -top-10 -left-[160px] rounded-l-[15px]',
+          'flex justify-center absolute -top-10 -left-[120px] rounded-l-[15px]',
           'shadow-xl',
         ],
       }),

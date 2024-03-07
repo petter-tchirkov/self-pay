@@ -24,7 +24,7 @@
     </header>
     <div>
       <div
-        v-if="selectedFood === 'Всі'"
+        v-if="selectedFood === $t('categories.all')"
         class="menu__all-products"
       >
         <FoodSlider
@@ -58,12 +58,22 @@
         </div>
       </div>
     </div>
-    <OrderButton />
+    <OrderButton ref="orderButton" />
   </section>
 </template>
+
 <script setup lang="ts">
-  import { useWindowScroll } from '@vueuse/core'
+  import { useWindowScroll, useSwipe } from '@vueuse/core'
   const { y } = useWindowScroll()
+
+  const orderButton = ref()
+  const { isSwiping, direction } = useSwipe(orderButton, {
+    onSwipe(e: TouchEvent) {
+      if (direction.value === 'down') {
+        isOrderOpened.value = false
+      }
+    }
+  })
 
   const chosenPizza = ref([
     { name: 'pizzaCheese', price: 100, image: '/images/pizza1.png' },
@@ -114,9 +124,13 @@
       margin-right: 15px;
       background: linear-gradient(180deg, #f4f4f4 0%, #e9e9e9 100%);
 
-      box-shadow: 2px 2px 5px 0px #8c8c8ce5, -2px -2px 4px 0px #ffffffe5,
-        2px -2px 4px 0px #8c8c8c33, -2px 2px 4px 0px #8c8c8c33,
-        -1px -1px 2px 0px #8c8c8c80 inset, 1px 1px 2px 0px #ffffff4d inset;
+      box-shadow:
+        2px 2px 5px 0px #8c8c8ce5,
+        -2px -2px 4px 0px #ffffffe5,
+        2px -2px 4px 0px #8c8c8c33,
+        -2px 2px 4px 0px #8c8c8c33,
+        -1px -1px 2px 0px #8c8c8c80 inset,
+        1px 1px 2px 0px #ffffff4d inset;
 
       &.active {
         background: #299d92;

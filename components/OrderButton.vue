@@ -103,18 +103,13 @@
       transform: translateY(0);
     }
 
-    box-shadow:
-      20px -5px 67.30000305175781px 0px #299d9247,
-      -2px 5px 20.399999618530273px 0px #299d9208,
-      2px -2px 4px 0px #299d9233,
-      -2px 2px 4px 0px #299d9233;
-
     &__btn {
       padding-block: 10px;
       width: 100%;
       border-radius: 15px 15px 0 0;
       transition: 0.3s;
       background: linear-gradient(135deg, #f6f6f6 0%, #dddddd 100%);
+      border: 2px solid #299D92;
 
       &.opened {
         background: linear-gradient(180deg, #31cbbd 0%, #169185 100%);
