@@ -8,10 +8,7 @@
       style="backdrop-filter: blur(4px)"
       :class="{ hidden: !isOrderOpened }"
     ></div>
-    <div class="logo">
-      <Logo class="logo__image" />
-      <h1 class="logo__text">SELF PAY</h1>
-    </div>
+    <TopBar/>
     <div
       class="h-full overflow-auto pb-40"
       :style="`max-height: ${height}px`"
@@ -63,6 +60,7 @@
 
 <script setup lang="ts">
   import { useWindowSize } from '#imports'
+  const localePath = useLocalePath()
 
   const global = useGlobalStore()
   const { isOrderOpened } = storeToRefs(useGlobalStore())
@@ -77,24 +75,6 @@
 
 <style scoped lang="scss">
   .wrapper {
-    .logo {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
-      padding-block: 18px;
-      background: linear-gradient(180deg, #32c5b8 0%, #12897e 100%);
-
-      &__text {
-        font-size: 28px;
-        font-weight: 600;
-        max-width: 75px;
-        line-height: 0.9;
-        margin-top: 4px;
-
-        color: #f3f3f3;
-      }
-    }
 
     .place {
       display: flex;
@@ -164,13 +144,9 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        box-shadow:
-          2px 2px 5px 0px #929292e5,
-          -2px -2px 4px 0px #ffffffe5,
-          2px -2px 4px 0px #92929233,
-          -2px 2px 4px 0px #92929233,
-          -1px -1px 2px 0px #92929280 inset,
-          1px 1px 2px 0px #ffffff4d inset;
+        box-shadow: 2px 2px 5px 0px #929292e5, -2px -2px 4px 0px #ffffffe5,
+          2px -2px 4px 0px #92929233, -2px 2px 4px 0px #92929233,
+          -1px -1px 2px 0px #92929280 inset, 1px 1px 2px 0px #ffffff4d inset;
 
         img {
           width: 20px;
@@ -202,13 +178,9 @@
         background: linear-gradient(161.21deg, #242529 0%, #4f5157 100%);
         color: #f1f2f6cc;
 
-        box-shadow:
-          2px 2px 5px 0px #232326e5,
-          -2px -2px 4px 0px #51535ae5,
-          2px -2px 4px 0px #23232633,
-          -2px 2px 4px 0px #23232633,
-          -1px -1px 2px 0px #23232680 inset,
-          1px 1px 2px 0px #51535a4d inset;
+        box-shadow: 2px 2px 5px 0px #232326e5, -2px -2px 4px 0px #51535ae5,
+          2px -2px 4px 0px #23232633, -2px 2px 4px 0px #23232633,
+          -1px -1px 2px 0px #23232680 inset, 1px 1px 2px 0px #51535a4d inset;
 
         &:active {
           background: linear-gradient(161.21deg, #ed6672 0%, #ec2132 100%);

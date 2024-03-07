@@ -1,13 +1,12 @@
 <template>
-  <img :src="`/images/lang/${lang}.svg`" alt="" />
+  <img
+    :src="`/images/lang/${lang}.svg`"
+    alt=""
+  />
 </template>
 
 <script setup lang="ts">
-const { lang } = defineProps<{ lang: string }>();
-
-const getImgUrl = () => {
-  return require(`~/assets/images/lang/${lang}.svg`);
-};
+  const { lang } = defineProps<{ lang: string }>()
 </script>
 
 <style scoped></style>

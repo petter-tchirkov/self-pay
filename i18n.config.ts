@@ -31,6 +31,19 @@ export default defineI18nConfig(() => ({
       tipSize: 'Tip size in uah',
       noTips: 'No tip',
       otherSum: 'Other',
+
+      auth: {
+        privateCabinet: 'Private cabinet',
+        forgotPassword: 'Forgot password?',
+        registration: 'Registration',
+        email: 'Email',
+        password: 'Password',
+        next: 'Next',
+        forgotPasswordText: 'Enter your email and we will send you a link to reset your password',
+        confirmPassword: 'Confirm password',
+        login: 'Login',
+      },
+
       foods: {
         hek: 'Hek with vegetables in tomato sauce',
         salad: 'Greek salad-fresh',
@@ -88,6 +101,19 @@ export default defineI18nConfig(() => ({
       tipSize: 'Розмір чайових у грн',
       noTips: 'Без чайових',
       otherSum: 'Інша сума',
+
+      auth: {
+        privateCabinet: 'Особистий кабінет',
+        forgotPassword: 'Забули пароль?',
+        registration: 'Реєстрація',
+        email: 'Email',
+        password: 'Пароль',
+        next: 'Далі',
+        forgotPasswordText: 'Укажіть E-mail, який вводили під час реєстрації. На нього прийде посилання для того, щоб скинути старий пароль',
+        confirmPassword: 'Підтвердження паролю',
+        login: 'Увійти',
+      },
+
       foods: {
         hek: 'Хек з овочами в томаті',
         steak: 'Стейк курячий-гриль',

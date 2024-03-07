@@ -1,5 +1,12 @@
 <template>
   <div class="search pt-l">
+    <button class="search__filter w-12 flex justify-center items-center">
+      <img
+        src="/images/icons/user.svg"
+        alt=""
+        @click="$router.push(localePath('/auth/login'))"
+      />
+    </button>
     <div class="search__box">
       <InputText
         v-model="search"

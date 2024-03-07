@@ -1,0 +1,79 @@
+{
+  "table": "Table",
+  "pay": "Pay",
+  "payInPart": "Pay in part",
+  "restMenu": "Restaurant Menu",
+  "order": "Order {number} for {price} uah",
+  "search": "Search",
+  "uah": "uah",
+  "orderAll": "Select all items from the menu",
+  "orderTotal": "Total",
+  "orderTax": "Tax",
+  "orderService": "Service",
+  "orderTotalPay": "Total to pay",
+  "orderPay": "Pay",
+  "servingSize": "Serving size",
+  "big": "Big",
+  "cash": "Cash",
+  "small": "Small",
+  "gram": "g",
+  "leaveTips": "Leave tips",
+  "payForOrder": "Order payment",
+  "paymentMethod": "Payment Method",
+  "cardNumber": "Card  number",
+  "expirationDate": "Expires",
+  "cvv": "CVV2",
+  "cardHolderName": "Cardholder Name",
+  "tipSize": "Tip size in uah",
+  "noTips": "No tip",
+  "otherSum": "Other",
+
+  "cabinet": {
+    "myBills": "My bills",
+    "orderHistory": "Order history",
+    "order": "Order",
+    "bill": "Bill"
+  },
+
+  "auth": {
+    "privateCabinet": "Private cabinet",
+    "forgotPassword": "Forgot password?",
+    "registration": "Registration",
+    "email": "Email",
+    "password": "Password",
+    "next": "Next",
+    "forgotPasswordText": "Enter your email and we will send you a link to reset your password",
+    "confirmPassword": "Confirm password",
+    "login": "Login",
+    "logout": "Logout",
+    "confirm": "Confirm"
+  },
+
+  "foods": {
+    "hek": "Hek with vegetables in tomato sauce",
+    "salad": "Greek salad-fresh",
+    "steak": "Grilled chicken steak",
+    "vinaigrette": "Vinaigrette",
+    "burger": "Burger",
+    "salmon": "Baked salmon",
+    "olivie": "Olivier salad",
+    "pizza": "Pizza",
+    "sushi": "Sushi",
+    "shaurma": "Shaurma",
+    "sweets": "Sweets",
+    "pizzaCheese": "Pizza Cheese Salami",
+    "pizzaPear": "Pizza Cheese Pear"
+  },
+
+  "categories": {
+    "all": "All",
+    "pizza": "Pizza",
+    "burgers": "Burgers",
+    "popular": "Popular",
+    "seconds": "Seconds",
+    "salads": "Salads"
+  },
+
+  "addToOrder": "Add to order",
+  "hekDesc": "Fish in a delicate tomato-vegetable sauce, juicy and tasty. It can be consumed both hot and cold. Vegetables, in this dish, act as a garnish. The sauce, thanks to sugar and tomato paste, will have a sour-sweet taste, so it is perfect for fish."
+}

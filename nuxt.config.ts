@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     'nuxt-primevue',
+    '@vite-pwa/nuxt',
     '@vueuse/nuxt',
     [
       '@pinia/nuxt',
@@ -24,6 +25,13 @@ export default defineNuxtConfig({
     }
   },
   i18n: {
-    vueI18n: './i18n.config.ts'
+    lazy: true,
+    langDir: 'locales',
+    defaultLocale: 'en',
+    strategy: 'prefix_except_default',
+    locales: [
+      { code: 'en', iso: 'en-US', file: 'en.json', name: 'English' },
+      { code: 'ua', iso: 'uk-UA', file: 'ua.json', name: 'Українська' }
+    ]
   }
 })
