@@ -174,7 +174,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      border-radius: 50%;
+      border-radius: 4px;
       cursor: pointer;
       width: 25px;
       height: 25px;
@@ -190,7 +190,7 @@
         left: 4px;
         width: 17px;
         height: 17px;
-        border-radius: 50%;
+        border-radius: 4px;
         background: #58a39c;
         opacity: 0;
         box-shadow: 2px 2px 5px 0px #35625ee5 inset,

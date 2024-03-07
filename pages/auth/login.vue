@@ -2,7 +2,7 @@
   <div class="wrapper">
     <GoBackHeader message="auth.privateCabinet" />
     <div
-      class="flex flex-col items-center h-[calc(100vh-40px)] pt-36 justify-between pb-6"
+      class="flex flex-col items-center h-[calc(100vh-40px)] pt-[10%] justify-between pb-6"
     >
       <form
         action=""
@@ -28,7 +28,7 @@
           </nuxt-link>
         </div>
       </form>
-      <div class="px-4 w-full">
+      <div class="w-full sticky bottom-4 px-4">
         <ui-base-button
           :label="$t('auth.login')"
           is-green

@@ -89,7 +89,7 @@
       display: flex;
       align-items: center;
       gap: 2px;
-      margin-bottom: 20px;
+      margin-bottom: 28px;
       padding-top: 20px;
       // box-shadow: 2px 2px 5px 0px #16655EE5 inset, -2px -2px 4px 0px #32EBDAE5 inset, 2px -2px 4px 0px #16655E33 inset, -2px 2px 4px 0px #16655E33 inset, -1px -1px 2px 0px #16655E80, 1px 1px 2px 0px #32EBDA4D;
 
