@@ -1,47 +1,27 @@
 <template>
-  <section class="catalogue">
-    <h2 class="catalogue__title">{{ title }}</h2>
-    <div class="catalogue__slider">
-      <FoodItem
-        v-for="f in food"
-        :key="f.name"
-        :name="f.name"
-        :image="f.img"
-        :price="f.price"
-      />
+  <section class="catalogue mb-3 relative">
+    <h2 class="catalogue__title text-2xl font-semibold">{{ categoryName }}</h2>
+    <div class="catalogue__slider flex overflow-x-scroll py-3">
+      <FoodItem :dish="dish" v-for="dish in dishes" :key="dish.productId" is-in-slider/>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-  const { title = 'Burgers', food } = defineProps<{
-    title: string
-    food: {
-      name: string
-      img: string
-      price: number
-    }[]
-  }>()
+import type { Dish } from '~/types/dish'
+const { dishes } = defineProps<{ dishes: Dish[] }>()
+const categoryName = computed(() => {
+  return dishes.map((dish) => dish.categoryName)[0]
+})
 </script>
 
 <style scoped lang="scss">
-  .catalogue {
-    margin-bottom: 10px;
-    position: relative;
+.catalogue {
+  &__slider {
 
-    &__title {
-      font-size: 25px;
-      font-weight: 600;
-    }
-
-    &__slider {
-      display: flex;
-      overflow-x: scroll;
-      padding-block: 10px;
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
+    &::-webkit-scrollbar {
+      display: none;
     }
   }
+}
 </style>

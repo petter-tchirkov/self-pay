@@ -1,11 +1,10 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: false },
+  devtools: { enabled: true },
   ssr: false,
   modules: [
     '@nuxtjs/tailwindcss',
+    '@nuxt/devtools',
     'nuxt-primevue',
-    '@vite-pwa/nuxt',
     '@vueuse/nuxt',
     [
       '@pinia/nuxt',
@@ -33,5 +32,10 @@ export default defineNuxtConfig({
       { code: 'en', iso: 'en-US', file: 'en.json', name: 'English' },
       { code: 'ua', iso: 'uk-UA', file: 'ua.json', name: 'Українська' }
     ]
+  },
+  runtimeConfig: {
+    public: {
+      apiURL: process.env.API_URL
+    }
   }
 })
