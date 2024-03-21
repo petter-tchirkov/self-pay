@@ -34,7 +34,7 @@
       </div>
 
       <div class="radio-group">
-        <label class="radio">
+        <label class="radio" @click="tip = calculateTip(5)">
           <input
             v-model="picked"
             type="radio"
@@ -42,11 +42,11 @@
             name="tip"
           />
           <span>
-            25 ₴ <br />
+            {{calculateTip(5)}} ₴ <br />
             <pre>5%</pre>
           </span>
         </label>
-        <label class="radio">
+        <label class="radio" @click="tip = calculateTip(10)">
           <input
             v-model="picked"
             type="radio"
@@ -54,11 +54,11 @@
             name="tip"
           />
           <span>
-            50 ₴<br />
+            {{calculateTip(10)}} ₴<br />
             <pre>10%</pre>
           </span>
         </label>
-        <label class="radio">
+        <label class="radio" @click="tip = calculateTip(15)">
           <input
             v-model="picked"
             type="radio"
@@ -66,11 +66,11 @@
             name="tip"
           />
           <span>
-            75 ₴<br />
+            {{calculateTip(15)}} ₴<br />
             <pre>15%</pre>
           </span>
         </label>
-        <label class="radio">
+        <label class="radio" @click="tip = calculateTip(20)">
           <input
             v-model="picked"
             type="radio"
@@ -78,13 +78,13 @@
             name="tip"
           />
           <span>
-            100 ₴<br />
+            {{calculateTip(20)}} ₴<br />
             <pre>20%</pre>
           </span>
         </label>
       </div>
       <div class="radio-group long">
-        <label class="radio long">
+        <label class="radio long" @click="tip = 0">
           <input
             v-model="picked"
             type="radio"
@@ -108,17 +108,19 @@
           class="tips__pay-btn"
           @click="$router.push('/payment')"
         >
-          {{ $t('pay') }} 700 {{ $t('uah') }}
+          {{ $t('pay') + ' ' + (orderTotalCost + tip) + ' ' + $t('uah') }}
         </button>
       </div>
       <div
         v-if="picked === 'noTip'"
         class="flex gap-3 items-center"
       >
-        <InputMask
+        <ui-base-input
+          v-model="tip"
+          type="number"
           class="input-shadow placeholder:text-center"
           :placeholder="$t('tipSize')"
-          mask="9999"
+          :use-grouping="false"
         />
       </div>
     </section>
@@ -129,6 +131,8 @@
   import 'vue3-carousel/dist/carousel.css'
   import { Carousel, Slide, Pagination } from 'vue3-carousel'
 
+  const {calculateTip} = useOrderStore() 
+  const {tip, orderTotalCost} = storeToRefs(useOrderStore())
   const picked = ref()
 </script>
 
@@ -157,7 +161,7 @@
         text-align: center;
         border-radius: 15px;
         line-height: 19px;
-        font-size: 16px;
+        font-size: 12px;
       }
     }
     input[type='radio']:checked ~ span {
@@ -179,12 +183,12 @@
         -1px -1px 2px 0px #68686880 inset,
         1px 1px 2px 0px #f2f2f24d inset;
       padding-block: 17px;
-      padding-inline: 14px;
+      padding-inline: 8px;
       background: linear-gradient(180deg, #dfdfdf 0%, #eeeeee 100%);
       border-radius: 10px;
       transition: all 0.3s;
       display: inline-block;
-      font-size: 18px;
+      font-size: 12px;
       font-weight: 600;
       width: 100%;
       text-align: center;

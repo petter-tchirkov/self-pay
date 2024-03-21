@@ -1,69 +1,52 @@
 <template>
   <div
     ref="el"
-    class="order z-50 max-h-[80%]"
-    :style="[
-      isOrderOpened
-        ? `transform:translateY(${height - 645}px)`
-        : `transform:translateY(${height - 47}px)`
-    ]"
+    class="order z-50"
   >
     <div class="order__wrapper">
       <button
         :class="['order__btn', { dark: isDark }, { opened: isOrderOpened }]"
         @click="isOrderOpened = !isOrderOpened"
       >
-        {{ $t('order', { number: 1, price: 250 }) }}
+        {{ $t('order', { number: 1, price: orderCost }) }}
       </button>
-      <div class="order__list">
-        <div class="order__boxes">
+      <div class="order__list transition-height" :class="isOrderOpened ? 'max-h-full' :  'max-h-0 !p-0'">
+        <div v-if="order.length" class="order__boxes h-fit max-h-[320px] overflow-auto px-1">
           <OrderItem
-            id="hek"
+            v-for="dish in order"
+            :key="dish.productId"
+            :id="dish.productId"
             class="mb-6"
-            image="/images/hek.png"
-            title="hek"
-            :price="250"
+            :image="dish.image"
+            :title="dish.name"
+            :price="dish.price.prices[1]"
           />
-          <OrderItem
-            id="salad"
-            class="mb-6"
-            image="/images/salad.png"
-            title="salad"
-            :price="250"
-          />
-          <OrderItem
-            id="salmon"
-            class="mb-6"
-            image="/images/salmon.png"
-            title="salmon"
-            :price="250"
-          />
-          <div class="order__all">
+        </div>
+          <div class="order__all mb-5">
             <OrderCheckbox />
             <span>{{ $t('orderAll') }}</span>
           </div>
-        </div>
         <div class="order__cost cost">
           <div class="cost__total flex justify-between text-[15px]">
             <span>{{ $t('orderTotal') }}:</span>
-            <span>750 {{ $t('uah') }}</span>
+            <span>{{`${orderCost} ${$t('uah')}`  }}</span>
           </div>
           <div class="cost__total flex justify-between text-[15px]">
             <span>{{ $t('orderTax') }} (20%):</span>
-            <span>150 {{ $t('uah') }}</span>
+            <span> {{orderTax + ' ' + $t('uah') }}</span>
           </div>
           <div class="cost__total flex justify-between text-[15px]">
             <span>{{ $t('orderService') }} (10%):</span>
-            <span>75 {{ $t('uah') }}</span>
+            <span> {{ orderServiceCost + ' ' + $t('uah') }}</span>
           </div>
           <div class="cost__total flex justify-between text-[25px] mb-[15px]">
             <span>{{ $t('orderTotalPay') }}</span>
-            <span class="font-extrabold">975 {{ $t('uah') }}</span>
+            <span class="font-extrabold">{{ orderTotalCost + ' ' + $t('uah') }}</span>
           </div>
           <div class="flex justify-center">
             <button
               class="order__pay"
-              @click="$router.push('/tips')"
+              @click="sendOrder"
             >
               {{ $t('orderPay') }}
             </button>
@@ -77,6 +60,8 @@
 <script setup lang="ts">
   import { useElementSize, onClickOutside } from '@vueuse/core'
   const { isDark, isOrderOpened } = storeToRefs(useGlobalStore())
+  const { order, orderCost, orderTax, orderServiceCost, orderTotalCost } = storeToRefs(useOrderStore())
+  const {sendOrder} = useOrderStore()
 
   const el = ref<HTMLElement | null>(null)
   const { height } = useElementSize(el)
@@ -109,7 +94,7 @@
       border-radius: 15px 15px 0 0;
       transition: 0.3s;
       background: linear-gradient(135deg, #f6f6f6 0%, #dddddd 100%);
-      border: 2px solid #299D92;
+      border: 2px solid #299d92;
 
       &.opened {
         background: linear-gradient(180deg, #31cbbd 0%, #169185 100%);

@@ -18,11 +18,11 @@
     >
       <img
         class="item__image"
-        :src="image"
+        :src="getImageUrl"
         alt=""
       />
       <div class="item__info">
-        <p class="item__title">{{ $t(`foods.${title}`) }}</p>
+        <p class="item__title">{{ title }}</p>
         <div class="item__acts">
           <span class="item__price">{{ `${price} ${$t('uah')}` }}</span>
           <div class="item__count">
@@ -67,6 +67,13 @@
   const checked = ref(false)
 
   const count = ref(0)
+  const getImageUrl = computed(() => {
+    if (image) {
+      return `https://web-mouse.joinposter.com${image}`
+    } else {
+      return '/images/icons/dish.svg'
+    }
+  })
 </script>
 
 <style scoped lang="scss">
@@ -102,6 +109,7 @@
 
     &__image {
       width: 90px;
+      border-radius: 8px;
     }
 
     &__title {
@@ -124,7 +132,7 @@
     }
 
     &__price {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 600;
     }
 

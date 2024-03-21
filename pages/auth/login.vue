@@ -10,11 +10,13 @@
       >
         <MainIcon class="mb-12 mx-auto" />
         <ui-base-input
+          v-model="email"
           type="text"
           :placeholder="$t('auth.email')"
           class="mb-4"
         />
         <ui-base-input
+          v-model="password"
           type="password"
           :placeholder="$t('auth.password')"
           class="mb-4"
@@ -33,7 +35,7 @@
           :label="$t('auth.login')"
           is-green
           class="mb-4"
-          @click="$router.push(localePath('/profile'))"
+          @click="login(email, password)"
         />
         <ui-base-button
           :label="$t('auth.registration')"
@@ -45,7 +47,11 @@
 </template>
 
 <script setup lang="ts">
+  const { login } = useAuthStore()
   const localePath = useLocalePath()
+
+  const email = ref('')
+  const password = ref('')
 </script>
 
 <style scoped></style>

@@ -12,14 +12,14 @@
     <div class="product__picture">
       <img
         class="product__image"
-        src="/images/icons/product.png"
+        :src="getImageUrl"
         alt=""
       />
     </div>
     <div class="product__content">
       <div class="product__description">
         <h1 class="product__title">
-          {{ $t(`foods.${$route.params.product}`) }}
+          {{ dish?.name}}
         </h1>
       </div>
       <div class="product__info">
@@ -45,7 +45,7 @@
             alt=""
           />
         </div>
-        <span class="product__price">150 {{ $t('uah') }}</span>
+        <span class="product__price">{{`${dish?.price.prices[1]} ${$t('uah')}` }}</span>
       </div>
       <div class="product__size">
         <h2 class="product__size--text">{{ $t('servingSize') }}</h2>
@@ -69,7 +69,7 @@
         </div>
       </div>
       <div class="product__text">
-        <p>{{ $t('hekDesc') }}</p>
+        <p>{{dish?.description ?? 'Sorry, there is no description at the moment'}}</p>
       </div>
       <div class="product__actions">
         <button class="product__favourite">
@@ -78,13 +78,27 @@
             alt=""
           />
         </button>
-        <button class="product__add">{{ $t('addToOrder') }}</button>
+        <button class="product__add" @click="[addToOrder(dish), $router.back()]">{{ $t('addToOrder') }}</button>
       </div>
     </div>
   </section>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import type {Dish} from '~/types/dish'
+const url = useRuntimeConfig().public.apiURL
+const route = useRoute()
+const {data: dish} = await useFetch<Dish>(`${url}/Products/${route.params.product}`)
+const {addToOrder} = useOrderStore()
+
+const getImageUrl = computed(() => {
+  if (dish.value?.image) {
+    return `https://web-mouse.joinposter.com${dish.value.image}`
+  } else {
+    return '/images/icons/dish.svg'
+  }
+})
+</script>
 
 <style scoped lang="scss">
   .radio-group {

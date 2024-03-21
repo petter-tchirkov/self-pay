@@ -1,0 +1,72 @@
+import type { Dish } from '~/type/dish'
+export const useOrderStore = defineStore('order', () => {
+  const url = useRuntimeConfig().public.apiURL
+
+  const order = ref<Dish[]>([])
+  const orderCost = computed(() => {
+    return order.value.reduce((acc, dish) => acc + dish.price.prices[1], 0)
+  })
+  const orderTax = computed(() => {
+    return orderCost.value * 0.2
+  })
+  const orderServiceCost = computed(() => {
+    return orderCost.value * 0.1
+  })
+  const orderTotalCost = computed(() => {
+    return orderCost.value + orderTax.value + orderServiceCost.value
+  })
+
+  const tableId = ref(1)
+  const spotId = ref(1)
+  const personsCount = ref(1)
+
+  const calculateTip = (tip: number) => {
+    return orderTotalCost.value * (tip / 100)
+  }
+  const tip = ref(0)
+
+  const addToOrder = (dish: Dish) => {
+    if (!order.value.includes(dish)) {
+      order.value.push(dish)
+    }
+  }
+
+  const setupOrderBeforeSend = computed(() => {
+    return order.value.map((dish) => {
+      return {
+        productId: dish.productId,
+        name: dish.name,
+        price: dish.price.prices[1],
+        qty: 1
+      }
+    })
+  })
+
+  const sendOrder = async () => {
+    await $fetch(`${url}/Requests`, {
+      method: 'POST',
+      body: {
+        tableId: tableId.value,
+        spotId: spotId.value,
+        personsCount: personsCount.value,
+        orderRows: setupOrderBeforeSend.value
+      }
+    })
+  }
+
+  return {
+    order,
+    addToOrder,
+    orderCost,
+    orderTax,
+    orderServiceCost,
+    orderTotalCost,
+    tableId,
+    spotId,
+    personsCount,
+    calculateTip,
+    tip,
+    sendOrder,
+    setupOrderBeforeSend
+  }
+})
