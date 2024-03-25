@@ -14,11 +14,25 @@ export const useAuthStore = defineStore('auth', () => {
       method: 'POST',
       body: { email, password },
       onResponse({ response }) {
-        token.value = response._data
-        router.push(localePath('/profile'))
+        if (response.status === 200) {
+          token.value = response._data.token
+          router.push(localePath('/'))
+        }
       }
     })
   }
 
-  return { token, login }
+  const register = async (email: string, password: string) => {
+    await $fetch(`${url}/Users`, {
+      method: 'POST',
+      body: { email, password },
+      onResponse({ response }) {
+        if (response.status === 201) {
+          login(email, password)
+        }
+      }
+    })
+  }
+
+  return { token, login, register }
 })
