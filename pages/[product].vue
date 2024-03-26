@@ -189,24 +189,24 @@ const dish = useDishesStore().selectedFakeDish
       2px -2px 4px 0px #14645d33,
       -2px 2px 4px 0px #14645d33,
       -1px -1px 2px 0px #14645d80 inset,
-      1px 1px 2px 0px #30ead94d inset;
+      1px 1px 2px 0px #30ead94d ins;
   }
 
   &__add {
+    font-size: 18px;
+    font-weight: 600;
     border-radius: 15px;
     background: linear-gradient(180deg, #32c5b8 0%, #12897e 100%);
+    padding: 14px 58px;
+    color: #f3f3f3;
+
     box-shadow:
       2px 2px 5px 0px #14645de5,
       -2px -2px 4px 0px #30ead9e5,
       2px -2px 4px 0px #14645d33,
       -2px 2px 4px 0px #14645d33,
       -1px -1px 2px 0px #14645d80 inset,
-      1px 1px 2px 0px #30ead94d inset;
-
-    padding: 14px 44px;
-    color: #f3f3f3;
-    font-size: 18px;
-    line-height: 20px;
+      1px 1px 2px 0px #30ead94d ins;
   }
 }
 </style>
