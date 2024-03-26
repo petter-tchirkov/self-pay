@@ -76,7 +76,7 @@
         </div>
         <div class="cost__total flex justify-between text-[25px] mb-[15px]">
           <span>{{ $t('orderTotalPay') }}</span>
-          <span class="font-extrabold">{{ orderTotalCost + ' ' + $t('uah') }}</span>
+          <span class="font-extrabold">{{ (orderTotalCost + tip) + ' ' + $t('uah') }}</span>
         </div>
         <div class="flex justify-center">
           <button class="payment__pay" @click="$router.push('/success')">
@@ -90,7 +90,7 @@
 
 <script setup lang="ts">
 const selectedPaymentMethod = ref()
-const { orderCost, orderTax, orderServiceCost, orderTotalCost } = useOrderStore()
+const { orderCost, orderTax, orderServiceCost, orderTotalCost, tip } = useOrderStore()
 </script>
 
 <style scoped lang="scss">

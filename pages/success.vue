@@ -22,7 +22,7 @@ const success = () => {
       </g>
     </svg>
     <h1 class="text-3xl font-bold text-center my-5">Successful Payment</h1>
-    <p class="text-3xl text-center mb-10">{{ order.orderTotalCost }} UAH</p>
+    <p class="text-3xl text-center mb-10">{{ order.orderTotalCost + order.tip }} UAH</p>
     <base-button class="w-full btn" @click="success">Back to App</base-button>
   </section>
 </template>
