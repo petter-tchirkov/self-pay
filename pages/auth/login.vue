@@ -8,7 +8,7 @@
         action=""
         class="w-full px-4"
       >
-        <MainIcon class="mb-12 mx-auto" />
+        <Logo class="mb-12 mx-auto" />
         <ui-base-input
           v-model="email"
           type="text"

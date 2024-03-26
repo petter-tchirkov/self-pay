@@ -14,7 +14,7 @@ const { fetchCategories } = useCategoryStore()
 const { categories, selectedCategory, fakeCategories } = storeToRefs(useCategoryStore())
 const { fetchDishesByCategory, fetchDishes } = useDishesStore()
 
-await fetchCategories()
+// await fetchCategories()
 
 const filterDishesByCategory = async (category) => {
   selectedCategory.value = category

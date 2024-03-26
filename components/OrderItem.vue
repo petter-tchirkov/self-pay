@@ -21,7 +21,7 @@
           </div>
         </div>
       </div>
-      <img class="item__close" @click="order.removeFromOrder(dish)" src="/images/icons/close.svg" alt="" />
+      <img class="item__close" @click="$emit('close')" src="/images/icons/close.svg" alt="" />
     </div>
   </div>
 </template>
@@ -29,6 +29,7 @@
 <script setup lang="ts">
 import type { Dish } from '~/types/dish'
 const { checkedDishes } = storeToRefs(useOrderStore())
+const emit = defineEmits(['close'])
 const {
   image = '/images/burger.png',
   title = 'Burger',
