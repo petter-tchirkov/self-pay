@@ -27,9 +27,7 @@ export const useOrderStore = defineStore('order', () => {
   const tip = ref(0)
 
   const addToOrder = (dish: Dish) => {
-    if (!order.value.includes(dish)) {
-      order.value.push(dish)
-    }
+    order.value.push(dish)
   }
 
   const removeFromOrder = (dish: Dish) => {
@@ -47,6 +45,10 @@ export const useOrderStore = defineStore('order', () => {
     })
   })
 
+  const clearOrder = () => {
+    order.value = []
+  }
+
   const sendOrder = async () => {
     await $fetch(`${url}/Requests`, {
       method: 'POST',
@@ -58,6 +60,8 @@ export const useOrderStore = defineStore('order', () => {
       }
     })
   }
+
+  const checkedDishes = ref<Dish[]>([])
 
   return {
     order,
@@ -74,6 +78,8 @@ export const useOrderStore = defineStore('order', () => {
     sendOrder,
     setupOrderBeforeSend,
     removeFromOrder,
-    orderConfirmed
+    orderConfirmed,
+    checkedDishes,
+    clearOrder
   }
 })

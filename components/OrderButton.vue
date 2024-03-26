@@ -10,8 +10,8 @@
           <OrderItem v-for="dish in unique" :key="dish.productId" :id="dish.productId" :image="dish.image"
             :title="dish.name" :price="dish.price.prices[1]" :dish="dish" />
         </div>
-        <div class="order__all mb-5 p-1">
-          <OrderCheckbox />
+        <div class="order__all mb-5 p-1" @click="checkAll">
+          <OrderCheckbox @change="checkAll" />
           <span>{{ $t('orderAll') }}</span>
         </div>
         <div class="order__cost cost">
@@ -45,15 +45,24 @@
 <script setup lang="ts">
 import { useElementSize, onClickOutside } from '@vueuse/core'
 const { isDark, isOrderOpened } = storeToRefs(useGlobalStore())
-const { order, orderCost, orderTax, orderServiceCost, orderTotalCost } = storeToRefs(useOrderStore())
+const { order, orderCost, orderTax, orderServiceCost, orderTotalCost, checkedDishes } = storeToRefs(useOrderStore())
 const { sendOrder } = useOrderStore()
 
-const unique = [...new Set(order.value)]
+const unique = ref([...new Set(order.value)])
 
 const el = ref<HTMLElement | null>(null)
 onClickOutside(el, () => {
   isOrderOpened.value = false
 })
+
+
+const checkAll = () => {
+  if (checkedDishes.value.length === unique.value.length) {
+    checkedDishes.value = []
+  } else {
+    checkedDishes.value = unique.value
+  }
+}
 
 </script>
 

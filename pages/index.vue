@@ -1,7 +1,5 @@
 <template>
   <div class="wrapper" :class="{ dark: global.isDark }">
-    <div class="overlay w-full fixed top-0 left-0 bg-black bg-opacity-40 h-screen z-30"
-      style="backdrop-filter: blur(4px)" :class="{ hidden: !isOrderOpened }"></div>
     <TopBar />
     <div class="h-full overflow-auto pb-40" :style="`max-height: ${height}px`">
       <div class="container">
@@ -26,7 +24,6 @@
             <span>{{ $t(navItem.btn) }}</span>
           </NuxtLink>
         </div>
-        <OrderButton ref="orderButton" v-if="order.length" />
       </div>
     </div>
   </div>

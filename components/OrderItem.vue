@@ -1,7 +1,7 @@
 <template>
   <div class="order__box">
-    <div class="round">
-      <input type="checkbox" v-model="checked" @change="checkUncheckDish" :id="id" class="order__check" />
+    <div class="round" @change="checkUncheckDish">
+      <input type="checkbox" v-model="checked" :id="id" class="order__check" />
       <label :for="id" class="order__check-label"></label>
     </div>
     <div class="order__item item" :class="{ checked: checked }">
@@ -28,6 +28,7 @@
 
 <script setup lang="ts">
 import type { Dish } from '~/types/dish'
+const { checkedDishes } = storeToRefs(useOrderStore())
 const {
   image = '/images/burger.png',
   title = 'Burger',
@@ -63,6 +64,14 @@ const checkUncheckDish = () => {
     order.checkedDishes = order.checkedDishes.filter((d: Dish) => d.productId !== dish.productId)
   }
 }
+
+watch(checkedDishes, () => {
+  if (checkedDishes.value.some((d: Dish) => d.productId === dish.productId)) {
+    checked.value = true
+  } else {
+    checked.value = false
+  }
+})
 
 
 const addQuantity = () => {

@@ -29,7 +29,7 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [10, 212, 320]
       },
-      productId: 1
+      productId: 2
     },
     {
       categoryId: 1,
@@ -42,7 +42,7 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [10, 303, 320]
       },
-      productId: 1
+      productId: 3
     },
     {
       categoryId: 1,
@@ -55,7 +55,7 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [10, 288, 320]
       },
-      productId: 1
+      productId: 4
     },
     {
       categoryId: 2,
@@ -68,7 +68,7 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [10, 144, 320]
       },
-      productId: 2
+      productId: 5
     },
     {
       categoryId: 2,
@@ -81,7 +81,7 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [10, 181, 320]
       },
-      productId: 2
+      productId: 6
     },
     {
       categoryId: 2,
@@ -94,7 +94,7 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [10, 181, 320]
       },
-      productId: 2
+      productId: 7
     },
     {
       categoryId: 3,
@@ -106,7 +106,7 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [2, 59, 5]
       },
-      productId: 3
+      productId: 8
     },
     {
       categoryId: 3,
@@ -119,7 +119,7 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [2, 88, 5]
       },
-      productId: 3
+      productId: 9
     },
     {
       categoryId: 3,
@@ -132,7 +132,7 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [2, 59, 5]
       },
-      productId: 3
+      productId: 10
     },
     {
       categoryId: 3,
@@ -144,7 +144,7 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [2, 59, 5]
       },
-      productId: 3
+      productId: 11
     },
     {
       categoryId: 4,
@@ -158,7 +158,7 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [2, 414, 5]
       },
-      productId: 4
+      productId: 12
     },
     {
       categoryId: 4,
@@ -171,7 +171,7 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [2, 459, 5]
       },
-      productId: 4
+      productId: 13
     },
     {
       categoryId: 4,
@@ -184,7 +184,7 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [2, 423, 5]
       },
-      productId: 4
+      productId: 14
     }
   ])
 
