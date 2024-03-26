@@ -1,8 +1,10 @@
 <script setup lang="ts">
 const order = useOrderStore()
 const success = () => {
-  order.clearOrder()
   useRouter().push('/menu')
+  setTimeout(() => {
+    order.clearOrder()
+  }, 500)
 }
 </script>
 

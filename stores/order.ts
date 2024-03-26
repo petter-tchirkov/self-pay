@@ -22,7 +22,7 @@ export const useOrderStore = defineStore('order', () => {
   const personsCount = ref(1)
 
   const calculateTip = (tip: number) => {
-    return orderTotalCost.value * (tip / 100)
+    return Math.floor(orderTotalCost.value * (tip / 100))
   }
   const tip = ref(0)
 
