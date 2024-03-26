@@ -7,7 +7,7 @@
       </button>
       <div class="order__list transition-height" :class="isOrderOpened ? 'max-h-full' : 'max-h-0 !p-0'">
         <div v-show="order.length" class="order__boxes h-fit max-h-[320px] overflow-auto p-1">
-          <OrderItem v-for="dish in order" :key="dish.productId" :id="dish.productId" :image="dish.image"
+          <OrderItem v-for="dish in unique" :key="dish.productId" :id="dish.productId" :image="dish.image"
             :title="dish.name" :price="dish.price.prices[1]" :dish="dish" />
         </div>
         <div class="order__all mb-5 p-1">
@@ -48,10 +48,13 @@ const { isDark, isOrderOpened } = storeToRefs(useGlobalStore())
 const { order, orderCost, orderTax, orderServiceCost, orderTotalCost } = storeToRefs(useOrderStore())
 const { sendOrder } = useOrderStore()
 
+const unique = [...new Set(order.value)]
+
 const el = ref<HTMLElement | null>(null)
 onClickOutside(el, () => {
   isOrderOpened.value = false
 })
+
 </script>
 
 <style scoped lang="scss">

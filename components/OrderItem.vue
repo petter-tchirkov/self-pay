@@ -1,7 +1,7 @@
 <template>
   <div class="order__box">
     <div class="round">
-      <input type="checkbox" v-model="checked" :id="id" class="order__check" />
+      <input type="checkbox" v-model="checked" @change="checkUncheckDish" :id="id" class="order__check" />
       <label :for="id" class="order__check-label"></label>
     </div>
     <div class="order__item item" :class="{ checked: checked }">
@@ -11,11 +11,11 @@
         <div class="item__acts">
           <span class="item__price">{{ `${price} ${$t('uah')}` }}</span>
           <div class="item__count">
-            <button class="item__counter" @click="count >= 1 ? count-- : undefined">
+            <button class="item__counter" @click="removeQuantity">
               -
             </button>
             <span>{{ count }}</span>
-            <button class="item__counter" @click="count++">
+            <button class="item__counter" @click="addQuantity">
               +
             </button>
           </div>
@@ -44,7 +44,7 @@ const {
 
 const checked = ref(false)
 
-const count = ref(0)
+const count = ref(1)
 // const getImageUrl = computed(() => {
 //   if (image) {
 //     return `https://web-mouse.joinposter.com${image}`
@@ -53,8 +53,29 @@ const count = ref(0)
 //   }
 // })
 
+
 const order = useOrderStore()
 
+const checkUncheckDish = () => {
+  if (checked.value) {
+    order.checkedDishes.push(dish)
+  } else {
+    order.checkedDishes = order.checkedDishes.filter((d: Dish) => d.productId !== dish.productId)
+  }
+}
+
+
+const addQuantity = () => {
+  order.addToOrder(dish)
+  count.value++
+}
+
+const removeQuantity = () => {
+  if (count.value > 1) {
+    order.removeFromOrder(dish)
+    count.value--
+  }
+}
 
 </script>
 
