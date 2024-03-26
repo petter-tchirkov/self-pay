@@ -9,12 +9,12 @@
         alt=""
       />
     </button>
-    <div class="product__picture">
-      <img
-        class="product__image"
-        :src="dish?.image"
-        alt=""
-      />
+    <div class="product__picture h-full w-full bg-cover grow bg-center" :style="{'background-image': `url('${dish?.image}')`}">
+      <!-- <img -->
+      <!--   class="product__image w-full h-full object-cover" -->
+      <!--   :src="dish?.image" -->
+      <!--   alt="" -->
+      <!-- /> -->
     </div>
     <div class="product__content">
       <div class="product__description">
@@ -139,12 +139,11 @@ const dish = useDishesStore().selectedFakeDish
   }
   .product {
     position: relative;
-    background: linear-gradient(180deg, #32c5b8 0%, #12897e 100%);
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: end;
+    justify-content: space-between;
 
     &__content {
       background: linear-gradient(180deg, #eeeeee 0%, #d9d9d9 100%);
@@ -162,20 +161,7 @@ const dish = useDishesStore().selectedFakeDish
       left: 20px;
     }
 
-    &__picture {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex: 1;
-      width: 100%;
-      padding-inline: 40px;
-    }
 
-    &__image {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-    }
 
     &__description {
       border-radius: 15px 15px 0 0;

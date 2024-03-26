@@ -14,7 +14,7 @@ export const useDishesStore = defineStore('dishes', () => {
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Cheese Pizza',
       price: {
-        prices: [10, 20, 320]
+        prices: [10, 243, 320]
       },
       productId: 1
     },
@@ -27,7 +27,7 @@ export const useDishesStore = defineStore('dishes', () => {
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Pineapple Pizza',
       price: {
-        prices: [10, 20, 320]
+        prices: [10, 212, 320]
       },
       productId: 1
     },
@@ -40,7 +40,7 @@ export const useDishesStore = defineStore('dishes', () => {
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Sausage Pizza',
       price: {
-        prices: [10, 20, 320]
+        prices: [10, 303, 320]
       },
       productId: 1
     },
@@ -53,7 +53,7 @@ export const useDishesStore = defineStore('dishes', () => {
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Chicken Pizza',
       price: {
-        prices: [10, 20, 320]
+        prices: [10, 288, 320]
       },
       productId: 1
     },
@@ -66,7 +66,7 @@ export const useDishesStore = defineStore('dishes', () => {
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Pasta Balognese',
       price: {
-        prices: [10, 20, 320]
+        prices: [10, 144, 320]
       },
       productId: 2
     },
@@ -79,7 +79,7 @@ export const useDishesStore = defineStore('dishes', () => {
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Tomato Pasta',
       price: {
-        prices: [10, 20, 320]
+        prices: [10, 181, 320]
       },
       productId: 2
     },
@@ -92,21 +92,9 @@ export const useDishesStore = defineStore('dishes', () => {
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Pasta Carbonara',
       price: {
-        prices: [10, 20, 320]
+        prices: [10, 181, 320]
       },
       productId: 2
-    },
-    {
-      categoryId: 3,
-      categoryName: 'Beverages',
-      description: 'Coca Cola',
-      image: 'https://m.media-amazon.com/images/I/51v8nyxSOYL._SL1500_.jpg',
-      imageOrigin: 'https://via.placeholder.com/150',
-      name: 'Coca Cola',
-      price: {
-        prices: [2, 3, 5]
-      },
-      productId: 3
     },
     {
       categoryId: 3,
@@ -116,7 +104,7 @@ export const useDishesStore = defineStore('dishes', () => {
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Fanta',
       price: {
-        prices: [2, 3, 5]
+        prices: [2, 59, 5]
       },
       productId: 3
     },
@@ -129,7 +117,7 @@ export const useDishesStore = defineStore('dishes', () => {
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Haineken',
       price: {
-        prices: [2, 3, 5]
+        prices: [2, 88, 5]
       },
       productId: 3
     },
@@ -142,7 +130,19 @@ export const useDishesStore = defineStore('dishes', () => {
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Sprite',
       price: {
-        prices: [2, 3, 5]
+        prices: [2, 59, 5]
+      },
+      productId: 3
+    },
+    {
+      categoryId: 3,
+      categoryName: 'Beverages',
+      description: 'Coca Cola',
+      image: 'https://m.media-amazon.com/images/I/51v8nyxSOYL._SL1500_.jpg',
+      imageOrigin: 'https://via.placeholder.com/150',
+      name: 'Coca Cola',
+      price: {
+        prices: [2, 59, 5]
       },
       productId: 3
     },
@@ -156,7 +156,7 @@ export const useDishesStore = defineStore('dishes', () => {
         'https://www.google.com/url?sa=i&url=https%3A%2F%2Fcooking.nytimes.com%2Frecipes%2F1024760-chocolate-layer-cake&psig=AOvVaw0MoVL4pXWJokRHjldSPjo3&ust=1711479166879000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLCZpPCKkIUDFQAAAAAdAAAAABAE',
       name: 'Chocolate cake',
       price: {
-        prices: [2, 3, 5]
+        prices: [2, 414, 5]
       },
       productId: 4
     },
@@ -169,7 +169,7 @@ export const useDishesStore = defineStore('dishes', () => {
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Lemon cake',
       price: {
-        prices: [2, 3, 5]
+        prices: [2, 459, 5]
       },
       productId: 4
     },
@@ -182,21 +182,9 @@ export const useDishesStore = defineStore('dishes', () => {
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Strawberry cake',
       price: {
-        prices: [2, 3, 5]
+        prices: [2, 423, 5]
       },
       productId: 4
-    },
-    {
-      categoryId: 5,
-      categoryName: 'Salads',
-      description: 'Salad with tomatoes',
-      image: 'https://via.placeholder.com/150',
-      imageOrigin: 'https://via.placeholder.com/150',
-      name: 'Salad with tomatoes',
-      price: {
-        prices: [2, 3, 5]
-      },
-      productId: 5
     }
   ])
 
