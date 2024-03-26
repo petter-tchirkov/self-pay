@@ -3,14 +3,15 @@ export const useOrderStore = defineStore('order', () => {
   const url = useRuntimeConfig().public.apiURL
 
   const order = ref<Dish[]>([])
+  const orderConfirmed = ref<Dish[]>([])
   const orderCost = computed(() => {
     return order.value.reduce((acc, dish) => acc + dish.price.prices[1], 0)
   })
   const orderTax = computed(() => {
-    return orderCost.value * 0.2
+    return Math.floor(orderCost.value * 0.2)
   })
   const orderServiceCost = computed(() => {
-    return orderCost.value * 0.1
+    return Math.floor(orderCost.value * 0.1)
   })
   const orderTotalCost = computed(() => {
     return orderCost.value + orderTax.value + orderServiceCost.value
@@ -29,6 +30,10 @@ export const useOrderStore = defineStore('order', () => {
     if (!order.value.includes(dish)) {
       order.value.push(dish)
     }
+  }
+
+  const removeFromOrder = (dish: Dish) => {
+    order.value = order.value.filter((d) => d !== dish)
   }
 
   const setupOrderBeforeSend = computed(() => {
@@ -67,6 +72,8 @@ export const useOrderStore = defineStore('order', () => {
     calculateTip,
     tip,
     sendOrder,
-    setupOrderBeforeSend
+    setupOrderBeforeSend,
+    removeFromOrder,
+    orderConfirmed
   }
 })

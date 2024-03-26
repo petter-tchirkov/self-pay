@@ -5,7 +5,7 @@
       <label :for="id" class="order__check-label"></label>
     </div>
     <div class="order__item item" :class="{ checked: checked }">
-      <img class="item__image pl-2.5" :src="image" alt="" />
+      <img class="item__image pl-2.5 !rounded-[15px]" :src="image" alt="" />
       <div class="item__info">
         <p class="item__title">{{ title }}</p>
         <div class="item__acts">
@@ -54,6 +54,8 @@ const count = ref(0)
 // })
 
 const order = useOrderStore()
+
+
 </script>
 
 <style scoped lang="scss">
@@ -122,10 +124,13 @@ const order = useOrderStore()
   }
 
   &__counter {
-    width: 35px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
     border-radius: 15px;
     background: #eaeaea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     box-shadow: 2px 2px 5px 0px #b0b0b0e5, -2px -2px 4px 0px #ffffffe5,
       2px -2px 4px 0px #b0b0b033, -2px 2px 4px 0px #b0b0b033,

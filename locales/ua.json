@@ -5,7 +5,7 @@
   "restMenu": "Меню ресторану",
   "order": "Замовлення {number} на {price} грн",
   "search": "Пошук",
-  "uah": "грн",
+  "uah": "ГРН",
   "orderAll": "Вибрати усі позиції із меню",
   "vinaigrette": "Вінегрет",
   "orderTotal": "Разом",
@@ -29,14 +29,12 @@
   "noTips": "Без чайових",
   "otherSum": "Інша сума",
   "noFood": "Вибачте, на даний момент в меню немає страв",
-
   "cabinet": {
     "myBills": "Мої чеки",
     "orderHistory": "Історія замовлень",
     "order": "Замовлення",
     "bill": "Чек"
   },
-
   "auth": {
     "privateCabinet": "Особистий кабінет",
     "forgotPassword": "Забули пароль?",

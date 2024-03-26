@@ -5,7 +5,7 @@
   "restMenu": "Restaurant Menu",
   "order": "Order {number} for {price} uah",
   "search": "Search",
-  "uah": "uah",
+  "uah": "UAH",
   "orderAll": "Select all items from the menu",
   "orderTotal": "Total",
   "orderTax": "Tax",
@@ -28,14 +28,12 @@
   "noTips": "No tip",
   "otherSum": "Other",
   "noFood": "Sorry, we ran out of offers in this category",
-
   "cabinet": {
     "myBills": "My bills",
     "orderHistory": "Order history",
     "order": "Order",
     "bill": "Bill"
   },
-
   "auth": {
     "privateCabinet": "Private cabinet",
     "forgotPassword": "Forgot password?",
@@ -49,7 +47,6 @@
     "logout": "Logout",
     "confirm": "Confirm"
   },
-
   "foods": {
     "hek": "Hek with vegetables in tomato sauce",
     "salad": "Greek salad-fresh",
@@ -65,7 +62,6 @@
     "pizzaCheese": "Pizza Cheese Salami",
     "pizzaPear": "Pizza Cheese Pear"
   },
-
   "categories": {
     "all": "All",
     "pizza": "Pizza",
@@ -74,7 +70,6 @@
     "seconds": "Seconds",
     "salads": "Salads"
   },
-
   "addToOrder": "Add to order",
   "hekDesc": "Fish in a delicate tomato-vegetable sauce, juicy and tasty. It can be consumed both hot and cold. Vegetables, in this dish, act as a garnish. The sauce, thanks to sugar and tomato paste, will have a sour-sweet taste, so it is perfect for fish."
 }

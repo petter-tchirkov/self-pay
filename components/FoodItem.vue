@@ -5,7 +5,7 @@
       <icons-favourite-icon />
     </button>
     <div class="w-full flex justify-center pt-3">
-      <img :src="dish.image" alt="dish" class="item__image" />
+      <img :src="dish.image" alt="dish" class="item__image mb-2" />
     </div>
     <div>
       <p class="item__name capitalize">{{ dish.name }}</p>

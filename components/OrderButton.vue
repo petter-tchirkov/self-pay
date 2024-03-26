@@ -6,11 +6,11 @@
         {{ $t('order', { number: 1, price: orderCost }) }}
       </button>
       <div class="order__list transition-height" :class="isOrderOpened ? 'max-h-full' : 'max-h-0 !p-0'">
-        <div v-show="order.length" class="order__boxes h-fit max-h-[320px] overflow-auto px-1">
-          <OrderItem v-for="dish in order" :key="dish.productId" :id="dish.productId" class="mb-6" :image="dish.image"
+        <div v-show="order.length" class="order__boxes h-fit max-h-[320px] overflow-auto p-1">
+          <OrderItem v-for="dish in order" :key="dish.productId" :id="dish.productId" :image="dish.image"
             :title="dish.name" :price="dish.price.prices[1]" :dish="dish" />
         </div>
-        <div class="order__all mb-5">
+        <div class="order__all mb-5 p-1">
           <OrderCheckbox />
           <span>{{ $t('orderAll') }}</span>
         </div>
@@ -49,7 +49,6 @@ const { order, orderCost, orderTax, orderServiceCost, orderTotalCost } = storeTo
 const { sendOrder } = useOrderStore()
 
 const el = ref<HTMLElement | null>(null)
-const { height } = useElementSize(el)
 onClickOutside(el, () => {
   isOrderOpened.value = false
 })
@@ -108,6 +107,9 @@ onClickOutside(el, () => {
 
   &__boxes {
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   &__pay {

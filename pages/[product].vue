@@ -12,7 +12,7 @@
     <div class="product__picture">
       <img
         class="product__image"
-        :src="getImageUrl"
+        :src="dish?.image"
         alt=""
       />
     </div>
@@ -88,16 +88,18 @@
 import type {Dish} from '~/types/dish'
 const url = useRuntimeConfig().public.apiURL
 const route = useRoute()
-const {data: dish} = await useFetch<Dish>(`${url}/Products/${route.params.product}`)
+// const {data: dish} = await useFetch<Dish>(`${url}/Products/${route.params.product}`)
 const {addToOrder} = useOrderStore()
 
-const getImageUrl = computed(() => {
-  if (dish.value?.image) {
-    return `https://web-mouse.joinposter.com${dish.value.image}`
-  } else {
-    return '/images/icons/dish.svg'
-  }
-})
+const dish = useDishesStore().selectedFakeDish
+
+// const getImageUrl = computed(() => {
+//   if (dish.value?.image) {
+//     return `https://web-mouse.joinposter.com${dish.value.image}`
+//   } else {
+//     return '/images/icons/dish.svg'
+//   }
+// })
 </script>
 
 <style scoped lang="scss">

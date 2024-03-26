@@ -16,7 +16,7 @@ export const useAuthStore = defineStore('auth', () => {
       onResponse({ response }) {
         if (response.status === 200) {
           token.value = response._data.token
-          router.push(localePath('/'))
+          router.push(localePath('/profile'))
         }
       }
     })
@@ -34,5 +34,10 @@ export const useAuthStore = defineStore('auth', () => {
     })
   }
 
-  return { token, login, register }
+  const logout = () => {
+    token.value = null
+    router.push(localePath('/'))
+  }
+
+  return { token, login, register, logout }
 })

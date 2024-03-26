@@ -10,6 +10,33 @@ export const useCategoryStore = defineStore('category', () => {
   const categories = ref<Category[]>([])
   const selectedCategory = ref<Category | null>(null)
 
+  const fakeCategories = ref<Category[]>([
+    {
+      categoryId: '1',
+      name: 'Pizza',
+      description: 'Description 1',
+      categoryPhoto: 'https://via.placeholder.com/150'
+    },
+    {
+      categoryId: '2',
+      name: 'Pasta',
+      description: 'Description 2',
+      categoryPhoto: 'https://via.placeholder.com/150'
+    },
+    {
+      categoryId: '3',
+      name: 'Beverages',
+      description: 'Description 3',
+      categoryPhoto: 'https://via.placeholder.com/150'
+    },
+    {
+      categoryId: '4',
+      name: 'Desserts',
+      description: 'Description 3',
+      categoryPhoto: 'https://via.placeholder.com/150'
+    }
+  ])
+
   const fetchCategories = async () => {
     await useFetch(`${url}/Categories`, {
       onResponse({ response }) {
@@ -18,5 +45,5 @@ export const useCategoryStore = defineStore('category', () => {
     })
   }
 
-  return { categories, fetchCategories, selectedCategory }
+  return { categories, fetchCategories, selectedCategory, fakeCategories }
 })
