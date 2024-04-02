@@ -1,15 +1,15 @@
 <template>
   <div class="order__box">
     <div class="round" @change="checkUncheckDish">
-      <input type="checkbox" v-model="checked" :id="id" class="order__check" />
-      <label :for="id" class="order__check-label"></label>
+      <input type="checkbox" v-model="checked" :id="dish?.productId.toString()" class="order__check" />
+      <label :for="dish?.productId.toString()" class="order__check-label"></label>
     </div>
     <div class="order__item item" :class="{ checked: checked }">
-      <img class="item__image pl-2.5 !rounded-[15px]" :src="image" alt="" />
+      <img class="item__image pl-2.5 !rounded-[15px]" :src="getImageUrl(dish?.image)" alt="" />
       <div class="item__info">
-        <p class="item__title">{{ title }}</p>
+        <p class="item__title">{{ dish?.name }}</p>
         <div class="item__acts">
-          <span class="item__price">{{ `${price} ${$t('uah')}` }}</span>
+          <span class="item__price">{{ `${dish?.price.prices[1]} ${$t('uah')}` }}</span>
           <div class="item__count">
             <button class="item__counter" @click="removeQuantity">
               -
@@ -27,33 +27,15 @@
 </template>
 
 <script setup lang="ts">
-import type { Dish } from '~/types/dish'
+import { getImageUrl } from '~/composables/useGetImageUrl'
 const { checkedDishes } = storeToRefs(useOrderStore())
 const emit = defineEmits(['close'])
-const {
-  image = '/images/burger.png',
-  title = 'Burger',
-  price = 250,
-  id = 'checkbox',
-  dish = {}
-} = defineProps<{
-  image: string
-  title: string
-  price: number
-  id: string
-  dish: Dish
-}>()
+
+const { dish } = defineProps<{ dish: Dish }>()
 
 const checked = ref(false)
 
 const count = ref(1)
-// const getImageUrl = computed(() => {
-//   if (image) {
-//     return `https://web-mouse.joinposter.com${image}`
-//   } else {
-//     return '/images/icons/dish.svg'
-//   }
-// })
 
 
 const order = useOrderStore()

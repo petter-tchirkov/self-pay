@@ -1,11 +1,11 @@
 <template>
   <div class="catalogue__item item flex justify-between flex-col" :class="{ 'mr-5 last:mr-4': isInSlider }"
-    @click="selectDishAndRoute(dish)">
+    @click="$router.push(localePath(`/${dish?.productId}`))">
     <button class="item__favourite">
       <icons-favourite-icon />
     </button>
     <div class="w-full flex justify-center pt-3">
-      <img :src="dish.image" alt="dish" class="item__image mb-2" />
+      <img :src="getImageUrl(dish?.image)" alt="dish" class="item__image mb-2" />
     </div>
     <div>
       <p class="item__name capitalize">{{ dish.name }}</p>
@@ -18,25 +18,15 @@
 
 <script setup lang="ts">
 import type { Dish } from '~/types/dish'
+import { getImageUrl } from '~/composables/useGetImageUrl'
+const localePath = useLocalePath()
+
 const { dish, isInSlider = false } = defineProps<{
   dish: Dish
   isInSlider?: boolean
 }>()
 
-const selectDishAndRoute = (dish: Dish) => {
-  selectedFakeDish.value = dish
-  useRouter().push(`/${dish.productId}`)
-}
 
-const { selectedFakeDish } = storeToRefs(useDishesStore())
-
-// const getImageUrl = computed(() => {
-//   if (dish.image) {
-//     return `https://web-mouse.joinposter.com${dish.image}`
-//   } else {
-//     return '/images/icons/dish.svg'
-//   }
-// })
 </script>
 
 <style scoped lang="scss">

@@ -37,5 +37,8 @@ export default defineNuxtConfig({
     public: {
       apiURL: process.env.API_URL
     }
+  },
+  imports: {
+    dirs: ['stores', 'composables', 'types']
   }
 })

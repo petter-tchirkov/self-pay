@@ -7,8 +7,8 @@
       </button>
       <div class="order__list transition-height" :class="isOrderOpened ? 'max-h-full' : 'max-h-0 !p-0'">
         <div v-show="order.length" class="order__boxes h-fit max-h-[320px] overflow-auto p-1">
-          <OrderItem v-for="dish in unique" :key="dish.productId" :id="dish.productId" :image="dish.image"
-            :title="dish.name" :price="dish.price.prices[1]" :dish="dish" @close="removeFromUnique(dish)" />
+          <OrderItem v-for="dish in order" :key="dish.productId" :id="dish.productId" :image="dish.image"
+            :title="dish.name" :price="dish.price.prices[1]" :dish="dish" @close="removeFromOrder(dish)" />
         </div>
         <div class="order__all mb-5 p-1" @click="checkAll">
           <OrderCheckbox @change="checkAll" />
@@ -43,16 +43,10 @@
 </template>
 
 <script setup lang="ts">
-import { useElementSize, onClickOutside } from '@vueuse/core'
+import { onClickOutside } from '@vueuse/core'
 const { isDark, isOrderOpened } = storeToRefs(useGlobalStore())
 const { order, orderCost, orderTax, orderServiceCost, orderTotalCost, checkedDishes } = storeToRefs(useOrderStore())
-const { sendOrder } = useOrderStore()
-
-const unique = ref([...new Set(order.value)])
-
-const removeFromUnique = (dish: Dish) => {
-  unique.value = unique.value.filter((d) => d.productId !== dish.productId)
-}
+const { sendOrder, removeFromOrder } = useOrderStore()
 
 const el = ref<HTMLElement | null>(null)
 onClickOutside(el, () => {
@@ -61,10 +55,10 @@ onClickOutside(el, () => {
 
 
 const checkAll = () => {
-  if (checkedDishes.value.length === unique.value.length) {
+  if (checkedDishes.value.length === order.value.length) {
     checkedDishes.value = []
   } else {
-    checkedDishes.value = unique.value
+    checkedDishes.value = order.value
   }
 }
 
