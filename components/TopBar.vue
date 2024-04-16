@@ -1,6 +1,6 @@
 <template>
   <NuxtLink :to="localePath('/auth/login')" class="logo px-4">
-    <Logo class="logo__image" variant="white" />
+    <Logo class="logo__image w-3/5" variant="white" />
   </NuxtLink>
 </template>
 

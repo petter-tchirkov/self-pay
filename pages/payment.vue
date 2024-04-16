@@ -79,7 +79,7 @@
           <span class="font-extrabold">{{ (orderTotalCost + tip) + ' ' + $t('uah') }}</span>
         </div>
         <div class="flex justify-center">
-          <button class="payment__pay" @click="$router.push('/success')">
+          <button class="payment__pay w-full" @click="$router.push('/success')">
             {{ $t('orderPay') }}
           </button>
         </div>

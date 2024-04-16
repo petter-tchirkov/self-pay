@@ -193,14 +193,6 @@ const picked = ref()
     &-btn {
       border-radius: 15px;
       background: linear-gradient(180deg, #32c5b8 0%, #12897e 100%);
-      box-shadow:
-        2px 2px 5px 0px #14645de5,
-        -2px -2px 4px 0px #30ead9e5,
-        2px -2px 4px 0px #14645d33,
-        -2px 2px 4px 0px #14645d33,
-        -1px -1px 2px 0px #14645d80 inset,
-        1px 1px 2px 0px #30ead94d inset;
-
       padding: 14px 44px;
       color: #f3f3f3;
       font-size: 18px;

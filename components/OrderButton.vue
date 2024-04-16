@@ -3,7 +3,7 @@
     <div class="order__wrapper">
       <button :class="['order__btn', { dark: isDark }, { opened: isOrderOpened }]"
         @click="isOrderOpened = !isOrderOpened">
-        {{ $t('order', { number: 1, price: orderCost }) }}
+        {{ $t('order', { price: orderTotalCost }) }}
       </button>
       <div class="order__list transition-height" :class="isOrderOpened ? 'max-h-full' : 'max-h-0 !p-0'">
         <div v-show="order.length" class="order__boxes h-fit max-h-[320px] overflow-auto p-1">
@@ -32,7 +32,7 @@
             <span class="font-extrabold">{{ orderTotalCost + ' ' + $t('uah') }}</span>
           </div>
           <div class="flex justify-center">
-            <button class="order__pay" @click="$router.push('/tips')">
+            <button class="order__pay w-full" @click="$router.push('/tips')">
               {{ $t('orderPay') }}
             </button>
           </div>
@@ -90,6 +90,7 @@ const checkAll = () => {
     border: 2px solid #299d92;
 
     &.opened {
+      color: #fff;
       background: linear-gradient(180deg, #31cbbd 0%, #169185 100%);
       box-shadow:
         2px 2px 5px 0px #14645de5 inset,

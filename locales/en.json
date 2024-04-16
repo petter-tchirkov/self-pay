@@ -3,7 +3,7 @@
   "pay": "Pay",
   "payInPart": "Pay in part",
   "restMenu": "Restaurant Menu",
-  "order": "Order {number} for {price} usd",
+  "order": "Total to pay: {price} usd",
   "search": "Search",
   "uah": "USD",
   "orderAll": "Select all items from the menu",

@@ -8,7 +8,7 @@
           <img src="/images/user.jpg" alt="" />
         </div>
         <p class="user__name font-semibold text-2xl mb-1 text-black">
-          Сергей Иванов
+          Serhei Ivanov
         </p>
         <span class="text-black text-lg mb-20 opacity-60">s.ivanov@gmail.com</span>
         <div class="px-4 w-full">

@@ -38,7 +38,7 @@
     class: ['bg-white w-full rounded-[15px] p-4 '],
   }),
   header: () => ({
-    class: ['text-center text-xl flex justify-between italic'],
+    class: ['text-center text-xl flex justify-between font-bold'],
   }),
   closeButtonIcon: () => ({
     class: ['text-[#060f0a]'],

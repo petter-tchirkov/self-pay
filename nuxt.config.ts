@@ -35,7 +35,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      apiURL: process.env.API_URL
+      apiURL: 'https://api.yumaxpay.com/api'
     }
   },
   imports: {
