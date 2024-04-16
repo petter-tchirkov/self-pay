@@ -18,17 +18,38 @@
           <LanguageSwitcher />
         </div>
         <div class="actions">
-          <NuxtLink v-for="navItem in navigationItems" :key="navItem.to" :to="`/${navItem.to}`" class="actions__btn">
+          <div @click="isNoOrderDialogShown = true" v-for="navItem in navigationItems" :key="navItem.to"
+            :to="`/${navItem.to}`" class="actions__btn">
             <img v-if="!global.isDark" :src="`/images/${navItem.btn}.svg`" alt="" />
             <img v-else :src="`/images/${navItem.btn}-light.svg`" alt="" />
             <span>{{ $t(navItem.btn) }}</span>
+          </div>
+          <NuxtLink to="/menu" class="actions__btn">
+            <img src="/images/restMenu.svg" alt="" />
+            <span>{{ $t('restMenu') }}</span>
           </NuxtLink>
         </div>
       </div>
     </div>
+    <Dialog v-model:visible="isNoOrderDialogShown" header="Error" modal :pt="{
+    root: () => ({
+      class: ['bg-white w-full rounded-[15px] p-4 '],
+    }),
+    header: () => ({
+      class: ['text-center text-xl flex justify-between'],
+    }),
+    closeButtonIcon: () => ({
+      class: ['text-[#060f0a]'],
+    }),
+    mask: () => ({
+      class: ['bg-black bg-opacity-40 px-8'],
+    }),
+  }">
+      <p class="my-4">Please make an order before paying</p>
+      <ui-base-button @click="$router.push('/menu')" label="Procceed to menu" is-green class="mt-4" type="primary" />
+    </Dialog>
   </div>
 </template>
-
 <script setup lang="ts">
 import { useWindowSize } from '#imports'
 const localePath = useLocalePath()
@@ -36,12 +57,12 @@ const { order } = storeToRefs(useOrderStore())
 
 const global = useGlobalStore()
 const { isOrderOpened } = storeToRefs(useGlobalStore())
-const { height } = useWindowSize()
+
+const isNoOrderDialogShown = ref(false)
 
 const navigationItems = ref([
   { btn: 'pay', to: 'tips' },
   { btn: 'payInPart', to: 'tips' },
-  { btn: 'restMenu', to: 'menu' }
 ])
 
 const orderButton = ref()

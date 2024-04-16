@@ -58,13 +58,13 @@ watch(checkedDishes, () => {
 
 
 const addQuantity = () => {
-  order.addToOrder(dish)
+  // order.addToOrder(dish)
   count.value++
 }
 
 const removeQuantity = () => {
   if (count.value > 1) {
-    order.removeFromOrder(dish)
+    // order.removeFromOrder(dish)
     count.value--
   }
 }

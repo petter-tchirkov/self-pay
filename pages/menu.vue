@@ -29,7 +29,7 @@ const { categories, selectedCategory, fakeCategories } = storeToRefs(
   useCategoryStore()
 )
 const { order } = storeToRefs(useOrderStore())
-await fetchDishes()
+// await fetchDishes()
 
 const orderButton = ref()
 const { direction } = useSwipe(orderButton, {

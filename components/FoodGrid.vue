@@ -1,8 +1,8 @@
 <template>
   <div ref="menu" class="menu">
-    <h2 v-if="!dishes.length" class="text-center text-xl">{{ $t('noFood') }}</h2>
+    <h2 v-if="!fakeDishes.length" class="text-center text-xl">{{ $t('noFood') }}</h2>
     <div v-else class="menu__grid gap-5">
-      <FoodItem v-for="dish in getDishesByCategoryId(selectedCategory!.categoryId)" :dish="dish" />
+      <FoodItem v-for="dish in getDishesByCategoryId(selectedCategory.categoryId)" :dish="dish" />
     </div>
   </div>
 </template>

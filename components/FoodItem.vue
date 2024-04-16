@@ -1,17 +1,17 @@
 <template>
   <div class="catalogue__item item flex justify-between flex-col" :class="{ 'mr-5 last:mr-4': isInSlider }"
     @click="$router.push(localePath(`/${dish?.productId}`))">
-    <!-- <button class="item__favourite">
+    <button v-if="token" class="item__favourite">
       <icons-favourite-icon />
-    </button> -->
+    </button>
     <div class="w-full flex justify-center pt-3">
       <img :src="dish?.image" alt="dish" class="item__image mb-2" />
     </div>
     <div>
       <p class="item__name capitalize">{{ dish.name }}</p>
       <span class="item__price">{{
-        `${dish.price.prices[1]} ${$t('uah')}`
-        }}</span>
+    `${dish.price.prices[1]} ${$t('uah')}`
+  }}</span>
     </div>
   </div>
 </template>
@@ -20,6 +20,7 @@
 import type { Dish } from '~/types/dish'
 import { getImageUrl } from '~/composables/useGetImageUrl'
 const localePath = useLocalePath()
+const { token } = storeToRefs(useAuthStore())
 
 const { dish, isInSlider = false } = defineProps<{
   dish: Dish
