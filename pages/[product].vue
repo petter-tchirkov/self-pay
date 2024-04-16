@@ -1,5 +1,5 @@
 <template>
-  <section class="product">
+  <section class="product wrapper">
     <button class="product__back" @click="$router.back">
       <div class="flex items-center justify-center bg-[#1d9e92] w-12 h-12 rounded-full">
         <img src="/images/icons/arrow.svg" alt="" />
@@ -47,7 +47,7 @@
       <div class="product__text">
         <p>
           {{
-            dish?.description ?? 'Sorry, there is no description at the moment'
+          dish?.description ?? 'Sorry, there is no description at the moment'
           }}
         </p>
       </div>

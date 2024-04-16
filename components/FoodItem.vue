@@ -1,9 +1,9 @@
 <template>
   <div class="catalogue__item item flex justify-between flex-col" :class="{ 'mr-5 last:mr-4': isInSlider }"
     @click="$router.push(localePath(`/${dish?.productId}`))">
-    <button class="item__favourite">
+    <!-- <button class="item__favourite">
       <icons-favourite-icon />
-    </button>
+    </button> -->
     <div class="w-full flex justify-center pt-3">
       <img :src="dish?.image" alt="dish" class="item__image mb-2" />
     </div>

@@ -69,8 +69,7 @@ const checkAll = () => {
   width: 100%;
   position: fixed;
   bottom: 0;
-  left: 0;
-  max-width: 960px;
+    max-width: 560px;
   color: #060f0acc;
   font-size: 25px;
   font-weight: 600;

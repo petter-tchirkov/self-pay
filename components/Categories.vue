@@ -50,6 +50,7 @@ const fetchAllDishes = async () => {
 
     &.active {
       background: #299d92;
+      color: #fff;
     }
   }
 }

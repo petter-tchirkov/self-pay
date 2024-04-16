@@ -1,34 +1,21 @@
 <template>
-  <div class="search pt-l">
+  <div class="search pt-l flex">
     <button class="search__filter w-12 flex justify-center items-center">
-      <img
-        src="/images/icons/user.svg"
-        alt=""
-        @click="$router.push(localePath('/auth/login'))"
-      />
+      <img src="/images/icons/user.svg" alt="" @click="$router.push(localePath('/auth/login'))" />
     </button>
-    <div class="search__box">
-      <InputText
-        v-model="search"
-        :placeholder="$t('search')"
-        class="search__input"
-      />
-      <img
-        src="/images/icons/search.svg"
-        alt=""
-      />
+    <div class="search__box grow">
+      <InputText v-model="search" :placeholder="$t('search')" class="search__input" />
+      <img src="/images/icons/search.svg" alt="" />
     </div>
     <button class="search__filter">
-      <img
-        src="/images/icons/filter.svg"
-        alt=""
-      />
+      <img src="/images/icons/filter.svg" alt="" />
     </button>
   </div>
 </template>
 
 <script setup lang="ts">
-  const search = ref('')
+const search = ref('')
+const localePath = useLocalePath()
 </script>
 
 <style scoped lang="scss">
@@ -36,10 +23,10 @@
     display: flex;
     gap: 15px;
     padding-inline: 16px;
+    width: 100%;
 
     &__box {
       position: relative;
-      flex: 1;
 
       img {
         position: absolute;
