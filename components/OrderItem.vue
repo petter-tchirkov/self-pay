@@ -1,6 +1,6 @@
 <template>
   <div class="order__box">
-    <div class="round" @change="checkUncheckDish">
+    <div class="round" v-if="isFullOrder" @change="checkUncheckDish">
       <input type="checkbox" v-model="checked" :id="dish?.productId.toString()" class="order__check" />
       <label :for="dish?.productId.toString()" class="order__check-label"></label>
     </div>
@@ -28,6 +28,7 @@
 
 <script setup lang="ts">
 import { getImageUrl } from '~/composables/useGetImageUrl'
+const { isFullOrder } = storeToRefs(useGlobalStore())
 const { checkedDishes } = storeToRefs(useOrderStore())
 const emit = defineEmits(['close'])
 
@@ -58,15 +59,13 @@ watch(checkedDishes, () => {
 
 
 const addQuantity = () => {
-  // order.addToOrder(dish)
+  order.addToOrder(dish)
   count.value++
 }
 
 const removeQuantity = () => {
-  if (count.value > 1) {
-    // order.removeFromOrder(dish)
-    count.value--
-  }
+  order.removeFromOrder(dish)
+  count.value--
 }
 
 </script>

@@ -1,8 +1,10 @@
-import type { Dish } from '~/type/dish'
 export const useOrderStore = defineStore('order', () => {
   const url = useRuntimeConfig().public.apiURL
 
   const order = ref<Dish[]>([])
+  const orderSet = computed(() => {
+    return [...new Set(order.value)]
+  })
   const orderConfirmed = ref<Dish[]>([])
   const orderCost = computed(() => {
     return order.value.reduce((acc, dish) => acc + dish.price.prices[1], 0)
@@ -30,8 +32,15 @@ export const useOrderStore = defineStore('order', () => {
     order.value.push(dish)
   }
 
+
   const removeFromOrder = (dish: Dish) => {
+    const dishLength = order.value.filter((d) => d === dish).length
+    const dishIndex = order.value.findIndex((d) => d === dish)
+    if (dishLength === 1) {
     order.value = order.value.filter((d) => d !== dish)
+    } else {
+      order.value.splice(dishIndex, 1)
+    }
   }
 
   const setupOrderBeforeSend = computed(() => {
@@ -80,6 +89,7 @@ export const useOrderStore = defineStore('order', () => {
     removeFromOrder,
     orderConfirmed,
     checkedDishes,
-    clearOrder
+    clearOrder,
+    orderSet
   }
 })

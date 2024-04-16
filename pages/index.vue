@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper" :class="{ dark: global.isDark }">
     <TopBar />
-    <div class="h-full overflow-auto pb-40" :style="`max-height: ${height}px`">
+    <div class="h-full overflow-auto pb-40">
       <div class="container">
         <div class="place">
           <img class="place__logo" src="/images/mos.png" alt="" />
@@ -18,11 +18,13 @@
           <LanguageSwitcher />
         </div>
         <div class="actions">
-          <div @click="isNoOrderDialogShown = true" v-for="navItem in navigationItems" :key="navItem.to"
-            :to="`/${navItem.to}`" class="actions__btn">
-            <img v-if="!global.isDark" :src="`/images/${navItem.btn}.svg`" alt="" />
-            <img v-else :src="`/images/${navItem.btn}-light.svg`" alt="" />
-            <span>{{ $t(navItem.btn) }}</span>
+          <div class="actions__btn" @click="[isNoOrderDialogShown = true, isFullOrder = false]">
+            <img src="/images/pay.svg" alt="" />
+            <span>{{ $t('pay') }}</span>
+          </div>
+          <div class="actions__btn" @click="[isNoOrderDialogShown = true, isFullOrder = true]">
+            <img src="/images/payInPart.svg" alt="" />
+            <span>{{ $t('payInPart') }}</span>
           </div>
           <NuxtLink to="/menu" class="actions__btn">
             <img src="/images/restMenu.svg" alt="" />
@@ -32,19 +34,19 @@
       </div>
     </div>
     <Dialog v-model:visible="isNoOrderDialogShown" header="Error" modal :pt="{
-    root: () => ({
-      class: ['bg-white w-full rounded-[15px] p-4 '],
-    }),
-    header: () => ({
-      class: ['text-center text-xl flex justify-between'],
-    }),
-    closeButtonIcon: () => ({
-      class: ['text-[#060f0a]'],
-    }),
-    mask: () => ({
-      class: ['bg-black bg-opacity-40 px-8'],
-    }),
-  }">
+  root: () => ({
+    class: ['bg-white w-full rounded-[15px] p-4 '],
+  }),
+  header: () => ({
+    class: ['text-center text-xl flex justify-between italic'],
+  }),
+  closeButtonIcon: () => ({
+    class: ['text-[#060f0a]'],
+  }),
+  mask: () => ({
+    class: ['bg-black bg-opacity-40 px-8'],
+  }),
+}">
       <p class="my-4">Please make an order before paying</p>
       <ui-base-button @click="$router.push('/menu')" label="Procceed to menu" is-green class="mt-4" type="primary" />
     </Dialog>
@@ -56,7 +58,7 @@ const localePath = useLocalePath()
 const { order } = storeToRefs(useOrderStore())
 
 const global = useGlobalStore()
-const { isOrderOpened } = storeToRefs(useGlobalStore())
+const { isOrderOpened, isFullOrder } = storeToRefs(useGlobalStore())
 
 const isNoOrderDialogShown = ref(false)
 

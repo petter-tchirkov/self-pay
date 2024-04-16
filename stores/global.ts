@@ -1,6 +1,7 @@
 export const useGlobalStore = defineStore('global', () => {
   const isDark = ref(false)
   const isOrderOpened = ref(false)
+  const isFullOrder = ref(false)
 
   const allCheckd = ref(false)
 
@@ -32,6 +33,7 @@ export const useGlobalStore = defineStore('global', () => {
     langData,
     allCheckd,
     isOrderOpened,
-    getLanguagesWithoutCurrent
+    getLanguagesWithoutCurrent,
+    isFullOrder
   }
 })

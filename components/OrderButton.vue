@@ -7,10 +7,10 @@
       </button>
       <div class="order__list transition-height" :class="isOrderOpened ? 'max-h-full' : 'max-h-0 !p-0'">
         <div v-show="order.length" class="order__boxes h-fit max-h-[320px] overflow-auto p-1">
-          <OrderItem v-for="dish in order" :key="dish.productId" :id="dish.productId" :image="dish.image"
+          <OrderItem v-for="dish in orderSet" :key="dish.productId" :id="dish.productId" :image="dish.image"
             :title="dish.name" :price="dish.price.prices[1]" :dish="dish" @close="removeFromOrder(dish)" />
         </div>
-        <div class="order__all mb-5 p-1" @click="checkAll">
+        <div v-if="isFullOrder" class="order__all mb-5 p-1" @click="checkAll">
           <OrderCheckbox @change="checkAll" />
           <span>{{ $t('orderAll') }}</span>
         </div>
@@ -44,8 +44,8 @@
 
 <script setup lang="ts">
 import { onClickOutside } from '@vueuse/core'
-const { isDark, isOrderOpened } = storeToRefs(useGlobalStore())
-const { order, orderCost, orderTax, orderServiceCost, orderTotalCost, checkedDishes } = storeToRefs(useOrderStore())
+const { isDark, isOrderOpened, isFullOrder } = storeToRefs(useGlobalStore())
+const { order, orderCost, orderTax, orderServiceCost, orderTotalCost, checkedDishes, orderSet } = storeToRefs(useOrderStore())
 const { sendOrder, removeFromOrder } = useOrderStore()
 
 const el = ref<HTMLElement | null>(null)
