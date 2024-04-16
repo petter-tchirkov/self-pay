@@ -8,7 +8,7 @@
     </header>
     <div>
       <div v-if="selectedCategory === null" class="menu__all-products">
-        <FoodSlider v-for="category in categories" :key="category.categoryId"
+        <FoodSlider v-for="category in fakeCategories" :key="category.categoryId"
           :dishes="getDishesByCategoryId(category.categoryId)" />
       </div>
       <FoodGrid v-else />
@@ -22,9 +22,9 @@ import { useWindowScroll, useSwipe } from '@vueuse/core'
 const { y } = useWindowScroll()
 const { t } = useI18n()
 
-const { dishes } = storeToRefs(useDishesStore())
+const { dishes, fakeDishes } = storeToRefs(useDishesStore())
 const { fetchDishes } = useDishesStore()
-const { categories, selectedCategory } = storeToRefs(
+const { categories, selectedCategory, fakeCategories } = storeToRefs(
   useCategoryStore()
 )
 const { order } = storeToRefs(useOrderStore())
@@ -40,7 +40,7 @@ const { direction } = useSwipe(orderButton, {
 })
 
 const getDishesByCategoryId = (categoryId: string) => {
-  return dishes.value.filter((dish) => dish.categoryId === +categoryId)
+  return fakeDishes.value.filter((dish) => dish.categoryId === +categoryId)
 }
 
 const chosenPizza = ref([

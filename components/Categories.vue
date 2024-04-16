@@ -2,7 +2,7 @@
   <div class="categories flex overflow-x-scroll py-5 pl-4">
     <button class="categories__btn" :class="{ active: selectedCategory === null }" @click="fetchAllDishes">{{
       $t('categories.all') }}</button>
-    <button v-for="category in categories" :key="category.name" class="categories__btn text-nowrap"
+    <button v-for="category in fakeCategories" :key="category.name" class="categories__btn text-nowrap"
       :class="{ active: selectedCategory?.name === category.name }" @click="filterDishesByCategory(category)">
       {{ category.name }}
     </button>
@@ -11,12 +11,12 @@
 
 <script setup lang="ts">
 const { fetchCategories } = useCategoryStore()
-const { categories, selectedCategory } = storeToRefs(useCategoryStore())
+const { categories, selectedCategory, fakeCategories } = storeToRefs(useCategoryStore())
 const { fetchDishesByCategory, fetchDishes } = useDishesStore()
 
 await fetchCategories()
 
-const filterDishesByCategory = async (category) => {
+const filterDishesByCategory = async (category: any) => {
   selectedCategory.value = category
   await fetchDishesByCategory(category.categoryId)
 }

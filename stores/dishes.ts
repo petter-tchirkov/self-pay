@@ -14,7 +14,7 @@ export const useDishesStore = defineStore('dishes', () => {
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Cheese Pizza',
       price: {
-        prices: [10, 243, 320]
+        prices: [10, 10, 10]
       },
       productId: 1
     },
@@ -27,7 +27,7 @@ export const useDishesStore = defineStore('dishes', () => {
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Pineapple Pizza',
       price: {
-        prices: [10, 212, 320]
+        prices: [10, 12, 320]
       },
       productId: 2
     },
@@ -40,7 +40,7 @@ export const useDishesStore = defineStore('dishes', () => {
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Sausage Pizza',
       price: {
-        prices: [10, 303, 320]
+        prices: [10, 14, 320]
       },
       productId: 3
     },
@@ -53,7 +53,7 @@ export const useDishesStore = defineStore('dishes', () => {
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Chicken Pizza',
       price: {
-        prices: [10, 288, 320]
+        prices: [10, 9, 320]
       },
       productId: 4
     },
@@ -66,7 +66,7 @@ export const useDishesStore = defineStore('dishes', () => {
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Pasta Balognese',
       price: {
-        prices: [10, 144, 320]
+        prices: [10, 10, 320]
       },
       productId: 5
     },
@@ -79,7 +79,7 @@ export const useDishesStore = defineStore('dishes', () => {
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Tomato Pasta',
       price: {
-        prices: [10, 181, 320]
+        prices: [10, 7, 320]
       },
       productId: 6
     },
@@ -92,45 +92,45 @@ export const useDishesStore = defineStore('dishes', () => {
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Pasta Carbonara',
       price: {
-        prices: [10, 181, 320]
+        prices: [10, 14, 320]
       },
       productId: 7
     },
     {
       categoryId: 3,
       categoryName: 'Beverages',
-      description: 'Coca Cola',
+      description: 'Fanta',
       image: 'https://positano.lv/wp-content/uploads/2021/11/fanta-0.5-new.png',
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Fanta',
       price: {
-        prices: [2, 59, 5]
+        prices: [2, 2, 5]
       },
       productId: 8
     },
     {
       categoryId: 3,
       categoryName: 'Beverages',
-      description: 'Coca Cola',
+      description: 'Heineken Beer',
       image:
         'data:image/jpeg;base64,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',
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Haineken',
       price: {
-        prices: [2, 88, 5]
+        prices: [2, 3, 5]
       },
       productId: 9
     },
     {
       categoryId: 3,
       categoryName: 'Beverages',
-      description: 'Coca Cola',
+      description: 'Sprite',
       image:
         'https://125626576.cdn6.editmysite.com/uploads/1/2/5/6/125626576/s456845222234713709_p345_i2_w1700.jpeg',
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Sprite',
       price: {
-        prices: [2, 59, 5]
+        prices: [2, 2, 5]
       },
       productId: 10
     },
@@ -142,7 +142,7 @@ export const useDishesStore = defineStore('dishes', () => {
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Coca Cola',
       price: {
-        prices: [2, 59, 5]
+        prices: [2, 2, 5]
       },
       productId: 11
     },
@@ -156,7 +156,7 @@ export const useDishesStore = defineStore('dishes', () => {
         'https://www.google.com/url?sa=i&url=https%3A%2F%2Fcooking.nytimes.com%2Frecipes%2F1024760-chocolate-layer-cake&psig=AOvVaw0MoVL4pXWJokRHjldSPjo3&ust=1711479166879000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLCZpPCKkIUDFQAAAAAdAAAAABAE',
       name: 'Chocolate cake',
       price: {
-        prices: [2, 414, 5]
+        prices: [2, 20, 5]
       },
       productId: 12
     },
@@ -169,7 +169,7 @@ export const useDishesStore = defineStore('dishes', () => {
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Lemon cake',
       price: {
-        prices: [2, 459, 5]
+        prices: [2, 18, 5]
       },
       productId: 13
     },
@@ -182,7 +182,7 @@ export const useDishesStore = defineStore('dishes', () => {
       imageOrigin: 'https://via.placeholder.com/150',
       name: 'Strawberry cake',
       price: {
-        prices: [2, 423, 5]
+        prices: [2, 22, 5]
       },
       productId: 14
     }

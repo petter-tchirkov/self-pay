@@ -23,28 +23,28 @@
         <label class="radio" @click="tip = calculateTip(5)">
           <input v-model="picked" type="radio" value="25" name="tip" />
           <span>
-            {{ calculateTip(5) }} ₴ <br />
+            {{ calculateTip(5) }} $ <br />
             <pre>5%</pre>
           </span>
         </label>
         <label class="radio" @click="tip = calculateTip(10)">
           <input v-model="picked" type="radio" value="50" name="tip" />
           <span>
-            {{ calculateTip(10) }} ₴<br />
+            {{ calculateTip(10) }} $<br />
             <pre>10%</pre>
           </span>
         </label>
         <label class="radio" @click="tip = calculateTip(15)">
           <input v-model="picked" type="radio" value="75" name="tip" />
           <span>
-            {{ calculateTip(15) }} ₴<br />
+            {{ calculateTip(15) }} $<br />
             <pre>15%</pre>
           </span>
         </label>
         <label class="radio" @click="tip = calculateTip(20)">
           <input v-model="picked" type="radio" value="100" name="tip" />
           <span>
-            {{ calculateTip(20) }} ₴<br />
+            {{ calculateTip(20) }} $<br />
             <pre>20%</pre>
           </span>
         </label>

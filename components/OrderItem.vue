@@ -5,7 +5,7 @@
       <label :for="dish?.productId.toString()" class="order__check-label"></label>
     </div>
     <div class="order__item item" :class="{ checked: checked }">
-      <img class="item__image pl-2.5 !rounded-[15px]" :src="getImageUrl(dish?.image)" alt="" />
+      <img class="item__image pl-2.5 !rounded-[15px]" :src="dish?.image" alt="" />
       <div class="item__info">
         <p class="item__title">{{ dish?.name }}</p>
         <div class="item__acts">

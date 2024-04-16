@@ -5,7 +5,7 @@
   "restMenu": "Restaurant Menu",
   "order": "Order {number} for {price} uah",
   "search": "Search",
-  "uah": "UAH",
+  "uah": "USD",
   "orderAll": "Select all items from the menu",
   "orderTotal": "Total",
   "orderTax": "Tax",

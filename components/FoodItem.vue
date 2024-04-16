@@ -5,12 +5,12 @@
       <icons-favourite-icon />
     </button>
     <div class="w-full flex justify-center pt-3">
-      <img :src="getImageUrl(dish?.image)" alt="dish" class="item__image mb-2" />
+      <img :src="dish?.image" alt="dish" class="item__image mb-2" />
     </div>
     <div>
       <p class="item__name capitalize">{{ dish.name }}</p>
       <span class="item__price">{{
-    `${dish.price.prices[1]} ${$t('uah')}`
+        `${dish.price.prices[1]} ${$t('uah')}`
         }}</span>
     </div>
   </div>

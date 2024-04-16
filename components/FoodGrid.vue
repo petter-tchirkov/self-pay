@@ -8,11 +8,11 @@
 </template>
 
 <script setup lang="ts">
-const { dishes } = storeToRefs(useDishesStore())
+const { dishes, fakeDishes } = storeToRefs(useDishesStore())
 const { selectedCategory } = storeToRefs(useCategoryStore())
 
 const getDishesByCategoryId = (categoryId: string) => {
-  return dishes.value.filter((dish) => dish.categoryId === +categoryId)
+  return fakeDishes.value.filter((dish) => dish.categoryId === +categoryId)
 }
 </script>
 
