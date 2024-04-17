@@ -1,8 +1,8 @@
 <template>
   <div class="order__box">
     <div class="round" v-if="isFullOrder" @change="checkUncheckDish">
-      <input type="checkbox" v-model="checked" :id="dish?.productId.toString()" class="order__check" />
-      <label :for="dish?.productId.toString()" class="order__check-label"></label>
+      <input type="checkbox" v-model="checked" :id="dish?.name" class="order__check" />
+      <label :for="dish?.name" class="order__check-label"></label>
     </div>
     <div class="order__item item" :class="{ checked: checked }">
       <img class="item__image pl-2.5 !rounded-[15px]" :src="dish?.image" alt="" />
@@ -21,7 +21,8 @@
           </div>
         </div>
       </div>
-      <img class="item__close" @click="$emit('close')" src="/images/icons/close.svg" alt="" />
+      <img class="item__close" @click="[$emit('close'), order.deleteDishFromOrder(dish)]" src="/images/icons/close.svg"
+        alt="" />
     </div>
   </div>
 </template>
@@ -65,7 +66,9 @@ const addQuantity = () => {
 
 const removeQuantity = () => {
   order.removeFromOrder(dish)
-  count.value--
+  if (count.value > 1) {
+    count.value--
+  }
 }
 
 </script>

@@ -32,9 +32,7 @@
             <span class="font-extrabold">{{ orderTotalCost + ' ' + $t('uah') }}</span>
           </div>
           <div class="flex justify-center">
-            <button class="order__pay w-full" @click="$router.push('/tips')">
-              {{ $t('orderPay') }}
-            </button>
+            <ui-base-button :label="$t('orderPay')" @click="$router.push('/tips')" is-green />
           </div>
         </div>
       </div>

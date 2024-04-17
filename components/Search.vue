@@ -7,9 +7,9 @@
       <InputText v-model="search" :placeholder="$t('search')" class="search__input" />
       <img src="/images/icons/search.svg" alt="" />
     </div>
-    <button class="search__filter">
+    <!-- <button class="search__filter">
       <img src="/images/icons/filter.svg" alt="" />
-    </button>
+    </button> -->
   </div>
 </template>
 

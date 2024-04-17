@@ -1,3 +1,5 @@
+import type { RefSymbol } from "@vue/reactivity"
+
 export const useOrderStore = defineStore('order', () => {
   const url = useRuntimeConfig().public.apiURL
 
@@ -36,11 +38,15 @@ export const useOrderStore = defineStore('order', () => {
   const removeFromOrder = (dish: Dish) => {
     const dishLength = order.value.filter((d) => d === dish).length
     const dishIndex = order.value.findIndex((d) => d === dish)
-    if (dishLength === 1) {
-    order.value = order.value.filter((d) => d !== dish)
-    } else {
+    if (dishLength > 1) {
       order.value.splice(dishIndex, 1)
+    } else {
+      return
     }
+  }
+
+  const deleteDishFromOrder = (dish: Dish) => {
+    order.value = order.value.filter((d) => d !== dish)
   }
 
   const setupOrderBeforeSend = computed(() => {
@@ -90,6 +96,7 @@ export const useOrderStore = defineStore('order', () => {
     orderConfirmed,
     checkedDishes,
     clearOrder,
-    orderSet
+    orderSet,
+    deleteDishFromOrder
   }
 })

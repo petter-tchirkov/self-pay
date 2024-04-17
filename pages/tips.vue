@@ -59,10 +59,9 @@
           <span>{{ $t('otherSum') }}</span>
         </label>
       </div>
-      <div class="tips__pay">
-        <button class="tips__pay-btn" @click="$router.push('/payment')">
-          {{ $t('pay') + ' ' + (orderTotalCost + tip) + ' ' + $t('uah') }}
-        </button>
+      <div class="tips__pay h-[55px]">
+        <ui-base-button :label="$t('pay') + ': ' + (orderTotalCost + tip) + ' ' + $t('uah')" is-green
+          @click="$router.push('/payment')" />
       </div>
       <div v-if="picked === 'noTip'" class="flex gap-3 items-center">
         <ui-base-input v-model="tip" type="number" class="input-shadow placeholder:text-center"

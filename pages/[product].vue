@@ -176,8 +176,8 @@ const dish = computed(() => {
   
     &__actions {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      gap: 15px;
       padding-bottom: 20px;
       margin-top: 20px;
     }
@@ -200,8 +200,9 @@ const dish = computed(() => {
       font-weight: 600;
       border-radius: 15px;
       background: linear-gradient(180deg, #32c5b8 0%, #12897e 100%);
-      padding: 14px 58px;
+      padding: 11px 58px;
       color: #f3f3f3;
+      flex: 1;
   
       box-shadow:
         2px 2px 5px 0px #14645de5,
