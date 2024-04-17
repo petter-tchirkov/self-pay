@@ -10,7 +10,7 @@ const success = () => {
 
 <template>
   <section class="flex flex-col px-10 justify-center min-h-screen">
-    <img src="/images/icons/check-green.svg" class="w-24 h-24 mx-auto" alt="">
+    <img src="/images/icons/check-green.svg" class="w-36 h-36 mx-auto" alt="">
     <h1 class="text-lg font-semibold text-center my-5">Successful Payment</h1>
     <p class="text-xl text-center mb-5">{{ order.orderTotalCost + order.tip }} UAH</p>
     <ui-base-button class="w-full" @click="success" label="Back to App" is-green />
