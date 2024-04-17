@@ -6,6 +6,7 @@
         {{ $t('order', { price: orderTotalCost }) }}
       </button>
       <div class="order__list transition-height" :class="isOrderOpened ? 'max-h-full' : 'max-h-0 !p-0'">
+        <p class="text-[16px] mb-4">Your table number: 9</p>
         <div v-show="order.length" class="order__boxes h-fit max-h-[320px] overflow-auto p-1">
           <OrderItem v-for="dish in orderSet" :key="dish.productId" :id="dish.productId" :image="dish.image"
             :title="dish.name" :price="dish.price.prices[1]" :dish="dish" @close="removeFromOrder(dish)" />

@@ -27,9 +27,7 @@
           <img src="/images/icons/star.svg" alt="" />
           <img src="/images/icons/star-empty.svg" alt="" />
         </div>
-        <!-- <span class="product__price">{{
-          `${dish?.price.prices[1]} ${$t('uah')}`
-          }}</span> -->
+        <span class="product__price">{{ `${dish?.price.prices[1]} ${$t('uah')}` }}</span>
       </div>
       <div class="product__size">
         <h2 class="product__size--text">{{ $t('servingSize') }}</h2>

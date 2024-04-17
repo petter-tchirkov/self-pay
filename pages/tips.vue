@@ -9,9 +9,12 @@
       </header>
       <img class="tips__ad" src="/images/ad.png" alt="" />
       <div class="tips__carousel">
-        <carousel :items-to-show="2" :items-to-scroll="2">
+        <carousel :items-to-show="1" :items-to-scroll="1">
           <slide v-for="slide in 10" :key="slide">
-            <AdditionalMeal />
+            <div class="flex gap-3 px-1">
+              <AdditionalMeal />
+              <AdditionalMeal />
+            </div>
           </slide>
           <template #addons>
             <pagination />
@@ -74,6 +77,7 @@
 <script setup lang="ts">
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination } from 'vue3-carousel'
+import AdditionalMeal from '~/components/AdditionalMeal.vue';
 
 const { calculateTip } = useOrderStore()
 const { tip, orderTotalCost } = storeToRefs(useOrderStore())
@@ -185,7 +189,7 @@ const picked = ref()
     padding-inline: 16px;
     width: 100%;
     position: fixed;
-    bottom: 25px;
+    bottom: 15px;
     left: 0;
     right: 0;
 

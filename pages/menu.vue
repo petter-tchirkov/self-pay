@@ -67,7 +67,8 @@ const selectedFood = ref(t('categories.all'))
   height: 100%;
 
   &__all-products {
-    padding-block: 160px;
+    padding-bottom: 160px;
+      padding-top: 150px;
     padding-inline: 0;
     padding-left: 16px;
     height: 100%;
