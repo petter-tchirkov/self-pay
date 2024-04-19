@@ -28,6 +28,12 @@
 <script setup lang="ts">
 const localePath = useLocalePath()
 const { logout } = useAuthStore()
+import { useWindowScroll } from '@vueuse/core'
+const { y } = useWindowScroll()
+
+onMounted(() => {
+  y.value = 0
+})
 </script>
 
 <style scoped lang="scss">

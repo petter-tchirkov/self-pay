@@ -9,7 +9,7 @@ export const useOrderStore = defineStore('order', () => {
   })
   const orderConfirmed = ref<Dish[]>([])
   const orderCost = computed(() => {
-    return order.value.reduce((acc, dish) => acc + dish.price.prices[1], 0)
+    return order.value.reduce((acc, dish) => acc + dish.price.prices[1] * dish.quantity, 0)
   })
   const orderTax = computed(() => {
     return Math.floor(orderCost.value * 0.2)
@@ -31,17 +31,29 @@ export const useOrderStore = defineStore('order', () => {
   const tip = ref(0)
 
   const addToOrder = (dish: Dish) => {
-    order.value.push(dish)
+    if (!dish.quantity) {
+      dish.quantity = 1
+    } else {
+      dish.quantity++
+    }
+    if (order.value.includes(dish)) {
+      return
+    } else {
+      order.value.push(dish)
+    }
   }
 
 
   const removeFromOrder = (dish: Dish) => {
-    const dishLength = order.value.filter((d) => d === dish).length
-    const dishIndex = order.value.findIndex((d) => d === dish)
-    if (dishLength > 1) {
-      order.value.splice(dishIndex, 1)
-    } else {
-      return
+    // const dishLength = order.value.filter((d) => d === dish).length
+    // const dishIndex = order.value.findIndex((d) => d === dish)
+    // if (dishLength > 1) {
+    //   order.value.splice(dishIndex, 1)
+    // } else {
+    //   return
+    // }
+    if (dish.quantity > 1) {
+      dish.quantity--
     }
   }
 

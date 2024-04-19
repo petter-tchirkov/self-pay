@@ -18,11 +18,11 @@ const { fetchDishesByCategory, fetchDishes } = useDishesStore()
 
 const filterDishesByCategory = async (category: any) => {
   selectedCategory.value = category
-  // await fetchDishesByCategory(category.categoryId)
+  await fetchDishesByCategory(category.categoryId)
 }
 const fetchAllDishes = async () => {
   selectedCategory.value = null
-  // await fetchDishes()
+  await fetchDishes()
 }
 </script>
 

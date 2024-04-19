@@ -68,7 +68,7 @@ const checkAll = () => {
   width: 100%;
   position: fixed;
   bottom: 0;
-    max-width: 560px;
+  max-width: 560px;
   color: #060f0acc;
   font-size: 25px;
   font-weight: 600;
@@ -87,6 +87,14 @@ const checkAll = () => {
     transition: 0.3s;
     background: linear-gradient(135deg, #f6f6f6 0%, #dddddd 100%);
     border: 2px solid #299d92;
+    box-shadow:
+      2px 2px 10px 0px #929292e5,
+      -2px -2px 4px 0px #929292e5,
+      2px -2px 4px 0px #92929233,
+      -2px 2px 4px 0px #92929233,
+      -1px -1px 2px 0px #92929280 inset,
+      1px 1px 2px 0px #ffffff4d inset;
+
 
     &.opened {
       color: #fff;

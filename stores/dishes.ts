@@ -1,6 +1,7 @@
 import type { Dish } from '~/types/dish'
 export const useDishesStore = defineStore('dishes', () => {
   const url = useRuntimeConfig().public.apiURL
+  const { isLoading } = storeToRefs(useGlobalStore())
 
   const selectedFakeDish = ref<Dish | null>(null)
 
@@ -16,7 +17,8 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [10, 10, 10]
       },
-      productId: 1
+      productId: 1,
+      quantity: 1
     },
     {
       categoryId: 1,
@@ -29,7 +31,8 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [10, 12, 320]
       },
-      productId: 2
+      productId: 2,
+      quantity: 1
     },
     {
       categoryId: 1,
@@ -42,7 +45,8 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [10, 14, 320]
       },
-      productId: 3
+      productId: 3,
+      quantity: 1
     },
     {
       categoryId: 1,
@@ -55,7 +59,8 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [10, 9, 320]
       },
-      productId: 4
+      productId: 4,
+      quantity: 1
     },
     {
       categoryId: 2,
@@ -68,7 +73,8 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [10, 10, 320]
       },
-      productId: 5
+      productId: 5,
+      quantity: 1
     },
     {
       categoryId: 2,
@@ -81,7 +87,8 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [10, 7, 320]
       },
-      productId: 6
+      productId: 6,
+      quantity: 1
     },
     {
       categoryId: 2,
@@ -94,7 +101,8 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [10, 14, 320]
       },
-      productId: 7
+      productId: 7,
+      quantity: 1
     },
     {
       categoryId: 3,
@@ -106,7 +114,8 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [2, 2, 5]
       },
-      productId: 8
+      productId: 8,
+      quantity: 1
     },
     {
       categoryId: 3,
@@ -119,7 +128,8 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [2, 3, 5]
       },
-      productId: 9
+      productId: 9,
+      quantity: 1
     },
     {
       categoryId: 3,
@@ -132,7 +142,8 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [2, 2, 5]
       },
-      productId: 10
+      productId: 10,
+      quantity: 1
     },
     {
       categoryId: 3,
@@ -144,7 +155,8 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [2, 2, 5]
       },
-      productId: 11
+      productId: 11,
+      quantity: 1
     },
     {
       categoryId: 4,
@@ -158,7 +170,8 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [2, 20, 5]
       },
-      productId: 12
+      productId: 12,
+      quantity: 1
     },
     {
       categoryId: 4,
@@ -171,7 +184,8 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [2, 18, 5]
       },
-      productId: 13
+      productId: 13,
+      quantity: 1
     },
     {
       categoryId: 4,
@@ -184,15 +198,18 @@ export const useDishesStore = defineStore('dishes', () => {
       price: {
         prices: [2, 22, 5]
       },
-      productId: 14
+      productId: 14,
+      quantity: 1
     }
   ])
 
   const dishes = ref<Dish[]>([])
   const fetchDishes = async () => {
+    isLoading.value = true
     await $fetch(`${url}/Products`, {
       onResponse({ response }) {
         dishes.value = response._data
+        isLoading.value = false
       }
     })
   }

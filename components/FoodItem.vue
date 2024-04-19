@@ -10,8 +10,8 @@
     <div>
       <p class="item__name capitalize">{{ dish.name }}</p>
       <span class="item__price">{{
-    `${dish.price.prices[1]} ${$t('uah')}`
-  }}</span>
+        `${dish.price.prices[1]} ${$t('uah')}`
+        }}</span>
     </div>
   </div>
 </template>
@@ -39,9 +39,8 @@ const { dish, isInSlider = false } = defineProps<{
   padding-top: 0;
   min-width: 161px;
   position: relative;
-
   box-shadow:
-    2px 2px 5px 0px #929292e5,
+    2px 2px 8px 0px #929292e5,
     -2px -2px 4px 0px #ffffffe5,
     2px -2px 4px 0px #92929233,
     -2px 2px 4px 0px #92929233,

@@ -22,6 +22,7 @@
         </carousel>
       </div>
 
+      <h1 class="text-xl text-center">Want to leave a tip?</h1>
       <div class="radio-group">
         <label class="radio" @click="tip = calculateTip(5)">
           <input v-model="picked" type="radio" value="25" name="tip" />

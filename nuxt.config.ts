@@ -20,7 +20,7 @@ export default defineNuxtConfig({
       unstyled: true
     },
     components: {
-      include: ['Dropdown', 'InputText', 'Checkbox', 'InputMask', 'Password', 'Dialog']
+      include: ['Dropdown', 'InputText', 'Checkbox', 'InputMask', 'Password', 'Dialog', 'ProgressSpinner']
     }
   },
   i18n: {
@@ -40,5 +40,14 @@ export default defineNuxtConfig({
   },
   imports: {
     dirs: ['stores', 'composables', 'types']
+  },
+  app: {
+    head: {
+      "title": "Yumaxpay",
+      "meta": [
+        { "charset": "utf-8" },
+        { "name": "description", "content": "Yumaxpay" }
+      ],
+    }
   }
 })

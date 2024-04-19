@@ -14,7 +14,7 @@
             <button class="item__counter" @click="removeQuantity">
               -
             </button>
-            <span>{{ count }}</span>
+            <span>{{ dish.quantity }}</span>
             <button class="item__counter" @click="addQuantity">
               +
             </button>
@@ -61,14 +61,10 @@ watch(checkedDishes, () => {
 
 const addQuantity = () => {
   order.addToOrder(dish)
-  count.value++
 }
 
 const removeQuantity = () => {
   order.removeFromOrder(dish)
-  if (count.value > 1) {
-    count.value--
-  }
 }
 
 </script>

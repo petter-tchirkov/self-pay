@@ -9,4 +9,5 @@ export type Dish = {
     prices: number[]
   }
   productId: number
+  quantity: number
 }

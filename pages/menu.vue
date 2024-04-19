@@ -1,5 +1,6 @@
 <template>
   <section class="wrapper overflow-x-hidden">
+    <PreLoader v-if="isLoading" />
     <div v-if="order.length" class="overlay w-full fixed top-0 left-0 bg-black bg-opacity-40 h-screen z-30"
       style="backdrop-filter: blur(4px)" :class="{ hidden: !isOrderOpened }"></div>
     <header class="fixed top-0 w-full z-10 pt-4 transition-all duration-300 max-w-[560px]"
@@ -29,7 +30,8 @@ const { categories, selectedCategory, fakeCategories } = storeToRefs(
   useCategoryStore()
 )
 const { order } = storeToRefs(useOrderStore())
-// await fetchDishes()
+const { isLoading } = storeToRefs(useGlobalStore())
+await fetchDishes()
 
 const orderButton = ref()
 const { direction } = useSwipe(orderButton, {
@@ -68,7 +70,7 @@ const selectedFood = ref(t('categories.all'))
 
   &__all-products {
     padding-bottom: 160px;
-      padding-top: 150px;
+    padding-top: 150px;
     padding-inline: 0;
     padding-left: 16px;
     height: 100%;
